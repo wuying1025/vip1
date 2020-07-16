@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>基础html标签</title>
 </head>
-<body>
+<body style="height:3000px;">
     <!-- html标签的语义化
         1 开发人员维护方便 
         2 有利于搜索引擎优化
@@ -31,8 +31,45 @@
         alt=""
      -->
     <!-- <img src="image/img01.jpg" alt=""> -->
-    <img src="../image/img01.jpg" alt="">
-    <img src="file:///Users/mac/work/vip1/image/img01.jpg" alt="">
-    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594879288037&di=71cf90b57bac43d605e029e1ae471d7a&imgtype=0&src=http%3A%2F%2Fm.360buyimg.com%2Fn12%2Fjfs%2Ft2353%2F66%2F1724658382%2F424102%2Fd89637df%2F567105c3ne5e47f23.jpg!q70.jpg" alt="">
-</body>
+    <!-- src 路径   alt 当图片加载不出来  显示alt中的内容   title鼠标划入  -->
+    <img src="../image/img01.jpg" alt="这是一个鲜花图片" title="我是图片的title" style="width:200px;height:200px;" >
+    <!-- <img src="file:///Users/mac/work/vip1/image/img01.jpg" alt="">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594879288037&di=71cf90b57bac43d605e029e1ae471d7a&imgtype=0&src=http%3A%2F%2Fm.360buyimg.com%2Fn12%2Fjfs%2Ft2353%2F66%2F1724658382%2F424102%2Fd89637df%2F567105c3ne5e47f23.jpg!q70.jpg" alt=""> -->
+    <!-- 无序列表 -->
+    <ul>
+        <li>
+           
+        </li>
+        <li>b</li>
+        <li>c</li>
+    </ul>
+    <!-- 有序列表 -->
+    <ol>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+    </ol>
+    <!-- 布局  划分区块  DIV+css  -->
+    <div style="background: red; width:200px; height:200px;">
+        我是一个div
+    </div>
+    <i>我不是div</i>爸爸<span style="background: indigo;">啦啦啦啦啦</span>了阿拉阿拉较好的恢复计划分阶段哈比布巴不得VG<strong>寒假快乐</strong>；l
+
+    <span style="background: green; width:200px; height:200px;">我是span</span>
+
+
+    <!-- 
+        行级元素  span  a  strong(加粗)  i（斜体） 
+            多个占一行  
+            不能设置宽高  
+        块级元素    div  p  h1-h6 ul li ol
+            自己站一行
+            可以设置宽高
+
+        行级块元素   img 
+            多个站一行 
+            可以设置宽高
+        
+    -->
+</body> 
 </html>
