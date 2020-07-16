@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 标签选择器 */
+        /* div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        } */
+        /* id选择器  id唯一 */
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: #0000ff;
+        }
+        /* class 类选择器 */
+        /* .list{
+           width: 100px;
+           height: 50px;
+           background: #0000ff; 
+        } */
+        /* 后代选择器  */
+        /* ul .list{
+            width: 100px;
+           height: 50px;
+           background: orange; 
+           border: 1px solid #000;
+        } */
+        /* 子代选择器 */
+        ul > .list{
+            width: 100px;
+           height: 50px;
+           background: orange; 
+           border: 1px solid #000;
+        }
+        /* 伪类 选择器 */
+        a:hover{ 
+            background: palegreen;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">我是div</div>
+    <div>我是div 2</div>
+    <div class="list">我是div 3</div>
+
+    <ul>
+        <li class="list">1111</li>
+        <li>222</li>
+        <li class="list">
+            <div>哈哈</div>
+            <div class="list">呵呵</div>
+        </li>
+    </ul>
+
+    <a href="http://www.baidu.com">百度</a>
+
+</body>
+</html>
