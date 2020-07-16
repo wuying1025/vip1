@@ -42,9 +42,49 @@
             background: palegreen;
             color: red;
         }
+        /* 分组选择器 */
+        #div1,.list{
+            color: seagreen;
+        }
+        h2{
+            background: red !important ;
+        }
+        #myH2{
+            background: green ; 
+        }
+        .aa span{  
+            background: indigo;
+            /* width: 200px; */
+            border: 1px solid #000;
+        }
+        #bb{
+            background: lawngreen;
+            /* height: 200px; */
+            color:red ;
+        }
+        
     </style>
 </head>
 <body>
+    <!-- 
+        css选择器
+            p        标签选择器
+            #div1    id选择器（id唯一）
+            .aa      class选择器
+            ul .aa   后代选择器
+            ul > .aa 子代选择器
+            :hover   伪类选择器
+            .aa,.bb  群组选择器|分组选择器
+
+
+            选择器的优先级
+            !important  最高
+            内联样式    1000
+            id选择器    100
+            class类选择器 伪类选择器   10
+            标签  1
+
+     -->
     <div id="div1">我是div</div>
     <div>我是div 2</div>
     <div class="list">我是div 3</div>
@@ -60,5 +100,10 @@
 
     <a href="http://www.baidu.com">百度</a>
 
+
+    <h2 id="myH2" style="background: hotpink;">我是H2</h2>
+    <h3 class="aa">
+        <span id="bb">哈哈哈</span>
+    </h3>
 </body>
 </html>
