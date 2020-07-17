@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            float: left;
+        }
+        #div2{
+            width: 300px;
+            height: 200px;
+            background: #0000ff;
+            float: left;
+        }
+        h1{
+            height: 100px;
+            background: #00ff00;
+        }
+        /* #div0{
+            height: 200px;
+        } */
+        #div0{
+            /* 溢出隐藏 */
+            /* overflow: hidden; */
+        }
+        /* #clear{
+            clear: both;
+        } */
+        /* 伪元素  after在内部的后边添加一个行元素*/
+        .clearfix::after{
+            content:"";
+            /* background: red; */
+            /* 块级元素 */
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        浮动导致父元素塌陷 
+            1 父元素添加高度 
+            2 父元素 overflow:hidden;  
+            3 浮动的元素下边添加一个元素  clear:both
+     -->
+    <div id="div0" class="clearfix">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <!-- <div ></div>  clear:both -->
+    </div>
+    <h1></h1>
+</body>
+</html>
