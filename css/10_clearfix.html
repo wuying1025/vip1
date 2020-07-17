@@ -47,6 +47,12 @@
             1 父元素添加高度 
             2 父元素 overflow:hidden;  
             3 浮动的元素下边添加一个元素  clear:both
+            4 clearfix 父元素添加clearfix
+                .clearfix::after{
+                    content:"";
+                    display: block;
+                    clear: both;
+                }
      -->
     <div id="div0" class="clearfix">
         <div id="div1"></div>
