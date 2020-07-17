@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #0000ff;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: #00ff00;
+        }
+        /* .aa{
+            width: 100px;
+            height: 100px;
+            background: lightpink;
+        } */
+        /* .aa,#div1{
+            width: 100px;
+            height: 100px;
+            background: lightseagreen;
+        }
+        #div1 span{
+            background: magenta;
+        }
+        a:hover{
+            background: mediumslateblue;
+        } */
+    </style>
+    <!-- <link rel="stylesheet" href="3_style.css"> -->
+</head>
+<body>
+    <!-- 
+        css选择器  
+            标签选择器
+            id选择器 #div1  
+            class 选择器  .aa
+            群组选择器 .aa,#div1
+            后代选择器 #div1 span
+            子带选择器 #div1 > span
+            伪类选择器  :hover
+        选择器优先级 
+            !important 最高
+            style内联样式 1000
+            id选择器 100
+            class 类选择器 | 伪类选择器  10 
+            标签选择器 1
+     -->
+    <!-- <div style="width: 200px;height: 200px;background: #ff0000;">哈哈哈呵呵呵呵</div> -->
+    <div class="aa">哈哈哈呵呵呵呵</div>
+    <div id="div1" style="background: black;">sdfghjkl;dfghjkl;'
+        <span>我是span</span>
+    </div>
+    <div class="aa">1111111111</div>
+    <div>22222222</div>
+    <span>我是外边的span</span>
+    <a href="htttp://www.baidu.com">哈哈哈</a>
+</body>
+</html>
