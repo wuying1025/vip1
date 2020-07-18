@@ -25,3 +25,35 @@
 .login{
     float: right;
 }
+.cart{
+    float: left;
+    width: 120px;
+    position: relative;
+    left:0;
+    top:0;
+}
+.cart-num{
+    height: 40px;
+    line-height: 40px;
+    color:#b0b0b0;
+    background: #424242;
+    text-align: center;
+}
+.cart-list{
+    width: 320px;
+    height: 100px;
+    /* background: red; */
+    position: absolute;
+    right: 0;
+    top:40px;
+    text-align: center;
+    line-height: 100px;
+    display: none;
+    /* css3边框阴影  水平偏移  垂直偏移 模糊度 外延值  颜色*/
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.2);
+
+}
+/* .carthover的时候  子元素cart-list  */
+.cart:hover .cart-list{
+    display: block;
+}
