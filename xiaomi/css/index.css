@@ -43,11 +43,12 @@
 }
 .cart-list{
     width: 320px;
-    
     /* background: red; */
     position: absolute;
     right: 0;
     top:40px;
+    background: #fff;
+    z-index:5;
     text-align: center;
     line-height: 100px;
     /* display: none; */
@@ -71,3 +72,63 @@
     color: #ff6700;
     background: #fff;
 }
+
+/* menu开始 */
+.menu{
+    height: 100px;
+    /* background: #f00; */
+}
+.logo-box{
+    float: left;
+    background: #ff6701;
+    margin-top:22px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+}
+.menu-box{
+    float: left;
+    /* background: #00ff00; */
+    margin-left:175px;
+}
+.menu-list{
+    float: left;
+    line-height: 100px;
+}
+.menu-list:hover a{
+    color: #ff6701;
+}
+.menu-list a{
+    padding:0 11px;
+    color: #333;
+    font-size: 16px;
+}
+.search-box{
+    float: right;
+    border:1px solid #e0e0e0;
+    width: 296px;
+    height: 50px;
+    margin-top:22px;
+}
+.search-box input{
+    width: 242px;
+    height: 50px;
+    border:none;
+    outline: none;
+    text-indent: 10px;
+    float: left;
+}
+.search-box button{
+    width:54px;
+    height: 50px;
+    border:none;
+    float: left;
+    background: none;
+    border-left:1px solid #e0e0e0;
+    /* box-sizing: content-box; */
+}
+.search-box .icon-sousuo{
+    color: #616161;
+    font-weight: bold;
+}
+
