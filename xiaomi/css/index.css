@@ -1,0 +1,27 @@
+#header{
+    height: 40px;
+    background: #333 ; 
+}
+.nav{
+    background: red;
+}
+.nav-list{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.nav-list a{
+    color:#b0b0b0;
+    padding: 0 8px;
+    border-left:1px solid #424242;
+}
+.nav-list a:hover{
+    color: #fff;
+}
+.nav-list-first a{
+    padding-left: 0;
+    border: none;
+}
+.login{
+    float: right;
+}

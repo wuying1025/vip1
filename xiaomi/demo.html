@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .clearfix::after{
+            content:"";
+            display: block;
+            clear: both;
+        }   
+        .nav{
+            /* background: #000; */
+            background: #333;
+            /* 去掉ul点样式 */
+            list-style:none;
+        }
+        .nav-list a{
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 12px;
+            padding:0 10px;
+        }
+        .nav-list{
+            float: left;
+            height: 40px;
+            line-height:40px ;
+            /* margin:0 10px; */
+            /* padding: 0 10px; */
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav clearfix" >
+        <li class="nav-list"><a href="#">小米商城</a></li>
+        <li class="nav-list"><a href="#">MIUI</a></li>
+        <li class="nav-list"><a href="#">IoT</a></li>
+        <li class="nav-list"><a href="#">云服务</a></li>
+        <li class="nav-list"><a href="#">金融</a></li>
+        <li class="nav-list"><a href="#">有品</a></li>
+        <li class="nav-list"><a href="">小爱开放平台</a></li>
+        <li class="nav-list"><a href="">企业团购</a></li>
+        <li class="nav-list"><a href="">资质证照</a></li>
+        <li class="nav-list"><a href="">协议规则</a></li>
+        <li class="nav-list"><a href="">下载app</a></li>
+        <li class="nav-list"><a href="">Select Location</a></li>
+    </ul>
+</body>
+</html>
