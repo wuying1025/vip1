@@ -57,6 +57,33 @@
       margin: 0 35px 0 31px;
       border:1px solid #e0e0e0;
     }
+    .content .form-content{
+      width: 348px;
+      margin:0 auto;
+    }
+    .content .form-content input{
+      border:none;
+      outline: none;
+    }
+    .content .form-content .inp-box{
+      width: 306px;
+      height: 22px;
+      padding: 13px 16px 13px 14px;
+      border:1px solid #e0e0e0;
+      margin-bottom: 14px;
+    }
+    .content .inp-box input{
+      width: 100%;
+    }
+    .content .btn-box input{
+      width: 338px;
+      height: 50px;
+      color: #fff;
+      background-color: #ff6700
+    }
+    .content .btn-box input:hover{
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -74,7 +101,17 @@
             <span></span>
             <a href="javascript:void(0);">扫码登录</a>
           </div>
-          <div class="form-content"></div>
+          <div class="form-content">
+            <div class="inp-box">
+              <input type="text" placeholder="邮箱/手机号码/小米ID">
+            </div>
+            <div class="inp-box">
+              <input type="password" placeholder="请输入密码">
+            </div>
+            <div class="btn-box">
+              <input type="button" value="登录">
+            </div>
+          </div>
           <div class="login-info"></div>
           <div class="other-login"></div>
         </div>
