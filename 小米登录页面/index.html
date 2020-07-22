@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,99 +10,205 @@
   <style>
     body {
       font-size: 14px;
-      font-family: Helvetica,arial,"Hiragino Sans GB","PingFang SC","Microsoft YaHei","微軟正黑體","儷黑 Pro",sans-serif;
+      font-family: Helvetica, arial, "Hiragino Sans GB", "PingFang SC", "Microsoft YaHei", "微軟正黑體", "儷黑 Pro", sans-serif;
     }
+
     /* header */
-    .header .h-logo{
+    .header .h-logo {
       width: 200px;
       height: 98px;
       background-image: url("./images/mistore_logo.png");
     }
+
     /* content 中间部分 */
-    .content{
+    .content {
       height: 590px;
       width: 100%;
       overflow: hidden;
       background-image: url("./images/bg.jpg");
       background-position: top center;
     }
-    .content .main-content{
+
+    .content .main-content {
       height: 590px;
-      margin-top:30px;
+      margin-top: 30px;
     }
-    .content .login-box{
+
+    .content .login-box {
       width: 410px;
       height: 566px;
       background-color: white;
       margin-left: auto;
       margin-right: 0;
     }
-    .content .login-box .nav-tabs{
+
+    .content .login-box .nav-tabs {
       padding: 27px 0 24px;
       text-align: center;
       font-size: 24px;
       color: #666;
     }
-    .content .nav-tabs a{
+
+    .content .nav-tabs a {
       color: #666;
     }
-    .content .nav-tabs a.active{
+
+    .content .nav-tabs a.active {
       color: #f56600;
     }
-    .content .nav-tabs a:hover{
+
+    .content .nav-tabs a:hover {
       color: #f56600;
     }
-    .content .nav-tabs span{
+
+    .content .nav-tabs span {
       width: 1px;
       height: 24px;
       margin: 0 35px 0 31px;
-      border:1px solid #e0e0e0;
+      border: 1px solid #e0e0e0;
     }
-    .content .form-content{
+
+    .content .form-content {
       width: 348px;
-      margin:0 auto;
+      margin: 0 auto;
     }
-    .content .form-content input{
-      border:none;
+
+    .content .form-content input {
+      border: none;
       outline: none;
     }
-    .content .form-content .inp-box{
+
+    .content .form-content .inp-box {
       width: 306px;
       height: 22px;
       padding: 13px 16px 13px 14px;
-      border:1px solid #e0e0e0;
+      border: 1px solid #e0e0e0;
       margin-bottom: 14px;
     }
-    .content .inp-box input{
+
+    .content .inp-box input {
       width: 100%;
     }
-    .content .inp-box input::-webkit-input-placeholder{
+
+    .content .inp-box input::-webkit-input-placeholder {
       color: #999;
     }
-    .content .btn-box input{
+
+    .content .btn-box input {
       width: 338px;
       height: 50px;
       color: #fff;
       background-color: #ff6700
     }
-    .content .btn-box input:hover{
+
+    .content .btn-box input:hover {
       cursor: pointer;
     }
-    .content .li-top,.content .li-bottom{
+
+    .content .li-top,
+    .content .li-bottom {
       text-align: center;
     }
-    .content .li-top{
-      margin-top:14px;
+
+    .content .li-top {
+      margin-top: 14px;
       margin-bottom: 30px;
     }
-    .content .li-top a{
+
+    .content .li-top a {
       color: #f56600
     }
-    .content .li-bottom a{
+
+    .content .li-bottom a {
       color: #999;
     }
+
+    .content .other-login {
+      width: 338px;
+      margin: 0 auto;
+      margin-top: 130px;
+    }
+
+    .content .other-login fieldset {
+      border-width: 1px 0 0 0;
+      border-style: solid;
+      border-color: #e0e0e0;
+      text-align: center;
+    }
+
+    .content .other-login legend {
+      color: #999
+    }
+
+    .content .ol-icon li {
+      float: left;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      background-color: #0288d1;
+      margin: 0 17px;
+    }
+
+    .content .ol-icon ul {
+      margin-top: 20px;
+      padding: 0 40px;
+    }
+
+    .content .ol-icon .sina {
+      background-color: #d32f2f;
+    }
+
+    .content .ol-icon .alpay {
+      background-color: #0ae
+    }
+
+    .content .ol-icon .wechat {
+      background-color: #00d20d
+    }
+
+    .content .ol-icon i {
+      background-image: url("./images/icons_type.png");
+      width: 18px;
+      height: 18px;
+      display: block;
+      margin: 4px auto 0;
+    }
+
+    .content .qq i {
+      background-position: -19px 0;
+    }
+
+    .content .sina i {
+      background-position: -38px 0;
+    }
+
+    .content .alpay i {
+      background-position: -57px 0;
+      width: 25px;
+    }
+
+    .content .wechat i {
+      background-position: -83px 0;
+      width: 24px;
+    }
+    /* 底部 */
+    .footer{
+      text-align: center;
+      padding-top:100px;
+    }
+    .footer .lang-select-list li{
+      display: inline-block;
+    }
+    .footer .lang-select-list a{
+      color: #333;
+    }
+    .footer .nf-intro{
+      padding: 10px 0;
+    }
+
   </style>
 </head>
+
 <body>
   <div class="container">
     <!-- header -->
@@ -138,12 +245,60 @@
               <a href="javascript:void(0);">忘记密码?</a>
             </div>
           </div>
-          <div class="other-login"></div>
+          <div class="other-login">
+            <fieldset>
+              <legend>其他登录方式</legend>
+            </fieldset>
+            <div class="ol-icon">
+              <ul>
+                <li class="qq">
+                  <i></i>
+                </li>
+                <li class="sina">
+                  <i></i>
+                </li>
+                <li class="alpay">
+                  <i></i>
+                </li>
+                <li class="wechat">
+                  <i></i>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <!-- footer -->
-    <div class="footer"></div>
+    <div class="footer">
+      <div class="lang-select-list">
+        <ul>
+          <li>
+            <a href="javacript:void(0);">简体</a>
+            ｜
+          </li>
+          <li>
+            <a href="javacript:void(0);">繁体</a>
+            ｜
+          </li>
+          <li>
+            <a href="javacript:void(0);">English</a>
+            ｜
+          </li>
+          <li>
+            <a href="javacript:void(0);">常见问题</a>
+            ｜
+          </li>
+          <li>
+            <a href="javacript:void(0);">隐私政策</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nf-intro">
+          小米公司版权所有-京ICP备10046444-<img src="https://account.xiaomi.com/static/res/9204d06/account-static/respassport/acc-2014/img/ghs.png">京公网安备11010802020134号-京ICP证110507号
+      </div>
+    </div>
   </div>
 </body>
+
 </html>
