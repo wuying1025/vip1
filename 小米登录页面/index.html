@@ -7,11 +7,55 @@
   <title>Document</title>
   <link rel="stylesheet" href="./css/common.css">
   <style>
+    body {
+      font-size: 14px;
+      font-family: Helvetica,arial,"Hiragino Sans GB","PingFang SC","Microsoft YaHei","微軟正黑體","儷黑 Pro",sans-serif;
+    }
     /* header */
     .header .h-logo{
       width: 200px;
       height: 98px;
       background-image: url("./images/mistore_logo.png");
+    }
+    /* content 中间部分 */
+    .content{
+      height: 590px;
+      width: 100%;
+      overflow: hidden;
+      background-image: url("./images/bg.jpg");
+      background-position: top center;
+    }
+    .content .main-content{
+      height: 590px;
+      margin-top:30px;
+    }
+    .content .login-box{
+      width: 410px;
+      height: 566px;
+      background-color: white;
+      margin-left: auto;
+      margin-right: 0;
+    }
+    .content .login-box .nav-tabs{
+      padding: 27px 0 24px;
+      text-align: center;
+      font-size: 24px;
+      color: #666;
+    }
+    .content .nav-tabs a{
+      color: #666;
+    }
+    .content .nav-tabs a.active{
+      color: #f56600;
+    }
+    .content .nav-tabs a:hover{
+      color: #f56600;
+    }
+    .content .nav-tabs span{
+      width: 1px;
+      height: 24px;
+      margin: 0 35px 0 31px;
+      border:1px solid #e0e0e0;
     }
   </style>
 </head>
@@ -23,8 +67,20 @@
     </div>
     <!-- 中间部分 -->
     <div class="content">
-      
+      <div class="main-content wrapper">
+        <div class="login-box">
+          <div class="nav-tabs">
+            <a class="active" href="javascript:void(0);">账号登录</a>
+            <span></span>
+            <a href="javascript:void(0);">扫码登录</a>
+          </div>
+          <div class="form-content"></div>
+          <div class="login-info"></div>
+          <div class="other-login"></div>
+        </div>
+      </div>
     </div>
+    <!-- footer -->
     <div class="footer"></div>
   </div>
 </body>
