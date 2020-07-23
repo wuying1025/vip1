@@ -22,11 +22,28 @@
       top:50%;
       margin-top:-100px;
     }
+    .box2::after{
+      content: "";
+      display: block;
+      width: 2px;
+      height: 50px;
+      background-color: black;
+    }
+    .box2::before{
+      content: "";
+      display: block;
+      width: 2px;
+      height: 50px;
+      background-color: purple;
+    }
   </style>
 </head>
 <body>
   <div class="box1">
-    <div class="box2"></div>
+    <div class="box2">
+      <p>world</p>
+      <p>hello</p>
+    </div>
   </div>
 </body>
 </html>
