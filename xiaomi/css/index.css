@@ -142,11 +142,33 @@
     left: 0;
 }
 .swiper .swiper-img{
+    overflow: hidden;
     background-color: blue;
     width: 100%;
+    position: relative;
 }
 .swiper .swiper-img img{
     width: 100%;
+    display: block;
+}
+.swiper .arr-left{
+    width: 41px;
+    height: 69px;
+    color: #fff;
+    position: absolute;
+    left: 234px;
+    top:50%;
+    margin-top:-35px;
+}
+.swiper .arr-left:hover{
+    background-color: rgba(0,0,0,.3);
+}
+.swiper .arr-left:hover .iconfont{
+    color: #fff;
+}
+.swiper .arr-left .iconfont{
+    font-size: 44px;
+    color: #616161;
 }
 .swiper .swiper-nav{
     width: 234px;
