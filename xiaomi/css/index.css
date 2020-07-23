@@ -145,8 +145,28 @@
     background-color: blue;
     width: 100%;
 }
+.swiper .swiper-img img{
+    width: 100%;
+}
 .swiper .swiper-nav{
     width: 234px;
-    background-color: red;
+    background-color: rgba(105,101,101,.6);
     z-index: 1;
+}
+.swiper .swiper-nav ul{
+    padding:20px 0;
+}
+.swiper .swiper-nav li{
+    padding:0 30px;
+    color: #fff;
+    font-size: 14px;
+    height: 42px;
+    line-height: 42px;
+}
+.swiper .swiper-nav li:hover{
+    background-color: #ff6700;
+    cursor: pointer;
+}
+.swiper .swiper-nav i{
+    float: right;
 }
