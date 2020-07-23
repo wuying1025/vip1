@@ -131,4 +131,22 @@
     color: #616161;
     font-weight: bold;
 }
-
+/* 轮播图区域 */
+.swiper .swiper-content{
+    position: relative;
+}
+.swiper .swiper-img,.swiper .swiper-nav{
+    height: 460px;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.swiper .swiper-img{
+    background-color: blue;
+    width: 100%;
+}
+.swiper .swiper-nav{
+    width: 234px;
+    background-color: red;
+    z-index: 1;
+}
