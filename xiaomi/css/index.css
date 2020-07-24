@@ -416,7 +416,6 @@
 .plain-box .pb-bottom .goods-item{
     width: 978px;
     height: 340px;
-    background-color: yellow;
     margin-left: 14px;
     float: left;
 }
@@ -434,4 +433,50 @@
     font-size: 21px;
     color: #ef3a3b;
     padding-top: 15px;
+}
+.plain-box .flashsale-countdown img{
+    margin: 25px auto;
+}
+.plain-box .flashsale-countdown .desc{
+    color: rgba(0,0,0,.54);
+    font-size: 15px;
+}
+.plain-box .flashsale-countdown .countdown{
+    width: 168px;
+    margin: 28px auto 0;
+}
+.plain-box .countdown span{
+    width: 46px;
+    height: 46px;
+    background-color: #605751;
+    color: #fff;
+    display: inline-block;
+    font-size: 24px;
+    line-height: 46px;
+}
+.plain-box .countdown i{
+    font-style: normal;
+    display: inline-block;
+    width: 7px;
+    height: 46px;
+    font-size: 28px;
+    line-height: 46px
+}
+.plain-box .goods-item li{
+    float: left;
+    width: 234px;
+    height: 339px;
+    padding-top: 39px;
+    background-color: #fff;
+    box-sizing: border-box;
+    text-align: center;
+}
+.plain-box .goods-item .gi-img{
+    width: 160px;
+    height: 160px;
+    margin:0 auto 22px
+}
+.plain-box .goods-item img{
+    width: 160px;
+    height: 160px;
 }
