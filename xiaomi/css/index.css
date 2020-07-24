@@ -275,25 +275,88 @@
 }
 .page-main .pm-center{
     height: 58px;
-    background-color: blue;
+    line-height: 58px;
 }
 
 .page-main .pm-bottom{
     height: 628px;
-    background-color: red;
 }
 .page-main .pm-bottom .pmb-left{
     width: 234px;
-    height: 628px;
-    background-color: yellow;
+    height: 614px;
     float: left;
+    background-image: url("../image/img4.jpg");
+    background-size: contain;
 }
 .page-main .pm-bottom .pmb-right{
     height: 628px;
-    width: 978px;
-    background-color: purple;
+    width: 992px;
     float: left;
+}
+.page-main .pm-center h3{
+    float: left;
+    font-size: 22px;
+    font-weight: 200;
+    color: #333;
+}
+.page-main .pm-center .more-btn{
+    float: right;
+    font-size: 16px;
+    color: #424242;
+}
+.page-main .more-btn div{
+    width: 12px;
+    height: 12px;
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #b0b0b0;
+    display: inline-block;
+    line-height: 12px;
+}
+.page-main .more-btn .iconfont{
+    color: #fff;
+}
+.page-main .pm-bottom .goods-item{
+    height: 260px;
+    padding:20px 0;
+    width: 234px;
+    float: left;
+    background: #fff;
+}
+.page-main .goods-item{
+    text-align: center;
     margin-left: 14px;
+    margin-bottom: 14px;
+}
+.page-main .goods-item .gi-img{
+    margin: 0 auto 18px;
+    width: 160px;
+    height: 160px;
+}
+.page-main .goods-item img{
+    width: 160px;
+    height: 160px;
+}
+.page-main .goods-item h3{
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    margin: 0 10px 2px
+}
+.page-main .goods-item .gi-info{
+    margin: 0 10px 10px;
+    height: 18px;
+    font-size: 12px;
+    color: #b0b0b0;
+}
+.page-main .gi-price{
+    font-size: 14px;
+}
+.page-main .gi-price span{
+    color: #ff6700;
+}
+.page-main .gi-price del{
+    color: #b0b0b0
 }
 /* 右侧快捷导航 */
 .tool-bar{
