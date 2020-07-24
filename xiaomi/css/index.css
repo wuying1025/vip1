@@ -195,6 +195,7 @@
 /* hero-sub */
 .hero-sub{
     margin-top:14px;
+    margin-bottom: 26px;
 }
 .hero-sub .hs-left{
     width: 234px;
@@ -374,4 +375,63 @@
 }
 .tool-bar i:hover{
     color: #ff6700;
+}
+/* 闪购区域 */
+.plain-box .pb-top{
+    height: 58px;
+    line-height: 58px;
+}
+.plain-box .pb-top h3{
+    float: left;
+    font-size: 22px;
+    font-weight: 200;
+    color: #333;
+}
+.plain-box .pb-top .right-btn{
+    margin-top:16px;
+    float: right;
+    width: 70px;
+    height: 25px;
+    border:1px solid #e0e0e0;
+}
+.plain-box .right-btn div{
+    float: left;
+    width: 49%;
+    line-height: 25px;
+    text-align: center;
+}
+.plain-box .right-btn div:first-child{
+    border-right: 1px solid #e0e0e0
+}
+.plain-box .right-btn .iconfont{
+    color: #b0b0b0;
+    font-weight: bolder;
+}
+.plain-box .right-btn .iconfont:hover{
+    color: #ff6700;
+}
+.plain-box .pb-bottom{
+    height: 340px;
+}
+.plain-box .pb-bottom .goods-item{
+    width: 978px;
+    height: 340px;
+    background-color: yellow;
+    margin-left: 14px;
+    float: left;
+}
+.plain-box .pb-bottom .flashsale-countdown{
+    width: 234px;
+    height: 340px;
+    background-color: #f1eded;
+    float: left;
+    border-top:1px solid #e53935;
+    padding-top: 39px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.plain-box .flashsale-countdown .timer{
+    font-size: 21px;
+    color: #ef3a3b;
+    padding-top: 15px;
 }
