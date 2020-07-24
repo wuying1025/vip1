@@ -299,7 +299,8 @@
     margin-top:0;
 }
 .page-main .pmb-right li:hover{
-    margin-top: -2px;
+    position: relative;
+    top:-2px;
     box-shadow: 0 15px 30px rgba(0,0,0,.1);
 }
 .page-main .pm-center h3{
@@ -533,4 +534,35 @@
     right: 0;
     bottom: 0;
     background: rgba(0,0,0,.02);
+}
+/* 下载APP移入效果 */
+.download{
+    position: relative;
+}
+.download:hover .border-arr{
+    display: block;
+}
+.border-arr{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -4px;
+    border-style: solid;
+    border-width: 8px;
+    border-color: transparent transparent #fff transparent;
+}
+.download:hover .code-bar{
+    height: 120px;
+}
+.code-bar{
+    transition: height .3s ease;
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px #aaa;
+    height: 0;
 }
