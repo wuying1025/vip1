@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function foo(){
+    //   // return 1;
+    // }
+    // var a = foo();
+    // console.log(a);
+    
+    // function foo(){
+    //   var a = 10;
+    //   function foo2(){
+
+    //   }
+    //   foo2()
+    // }
+
+    // foo2()
+
+    // var foo = function(){
+
+    // }
+
+    // function foo(){
+    //   var a = 10;
+    //   var a = "a";
+    // }
+    // function foo2(){
+    //   var a =20;
+    // }
+
+    // function foo(){
+    //   console.log("hello");
+    //   return 1;
+    // }
+    // var a = foo;
+    // console.log(a());
+
+    // a = 10;
+    // var a = window.prompt("多个值以逗号间隔");
+    // console.log(a.split(","));
+
+    // var x = window.prompt("请输入x");
+    // var y = window.prompt("请输入y");
+    // console.log(Math.min(x,y));
+    // console.log(x>y?y:x);
+
+    // var arr = [];
+    // for(var i=1;i<1000;i++){
+    //   if(i%3==0 && i%5==0 && i%7==0){
+    //     // document.write(i);
+    //     arr.push(i)
+    //   }
+    // }
+    // for(var j=0;j<arr.length;j++){
+    //   document.write(arr[j]);
+    //   document.write("&nbsp;");
+    //   if((j+1)%6==0){
+    //     document.write("<br/>");
+    //   }
+    // }
+
+    // 1 1 2 3 5 8
+    // var a = 1;
+    // var b = 1;
+    // var sum = 0;
+    // var temp = 0;
+    // for(var i=3;i<=5;i++){
+    //   sum = a+b
+    //   temp = a;
+    //   a = b;
+    //   b = temp + a;
+    // }
+    // console.log(sum)
+   
+  // function foo(i){
+  //   if(i<3){
+  //     return 1
+  //   }else{
+  //     return foo(i-1) + foo(i-2)
+  //   }
+  // }
+  // console.log(foo(6))
+
+  
+
+  // var a = window.confirm("ok?");
+  // console.log(a);
+
+  var isGoOn = true;
+  var win = 0;
+  var count = 0;
+  while(isGoOn){
+    count++;
+    var a = Math.floor(Math.random()*8)+1;//先取得0-8 然后+1 得到1-9
+    var b = Math.floor(Math.random()*8)+1;
+    var c = Math.floor(Math.random()*8)+1; 
+    if(a==8 || b==8 || c==8){
+      win++
+    }
+    isGoOn = window.confirm("是否继续？");
+    console.log(win/count);
+  }
+  
+
+  </script>
+</body>
+</html>
