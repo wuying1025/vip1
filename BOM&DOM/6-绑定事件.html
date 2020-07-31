@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>hello world</div>
+  <button>按钮</button>
+  <script>
+    var oDiv = document.getElementsByTagName("div")[0];
+    var oBtn = document.getElementsByTagName("button")[0];
+
+    oBtn.onclick = function(){
+      // console.log("click")
+      oDiv.style.color = "red";
+    }
+    // 事件三要素 事件源 事件处理函数 事件对象
+    oBtn.oncontextmenu = function(event){
+      console.log("右键")
+      console.log(event)
+      event.preventDefault();//阻止默认行为
+    }
+
+    var rootEl = document.documentElement;
+    console.log(rootEl);
+    rootEl.oncontextmenu = function(event){
+      event.preventDefault()
+    }
+
+  </script>
+</body>
+</html>

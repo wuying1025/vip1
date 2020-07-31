@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">hello world</div>
+  <div class="box2" style="color:blue">hello world</div>
+  <script>
+    var oBox = document.getElementsByClassName("box")[0];
+    var oBox2 = document.getElementsByClassName("box2")[0];
+
+    // console.log(oBox);
+    // oBox.innerHTML = "你好";
+    oBox.style.color = "red";
+    // oBox.style.font-size = "20px";
+    oBox.style.fontSize = "20px";
+
+    console.log(oBox2.style.color)
+
+  </script>
+</body>
+</html>
