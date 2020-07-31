@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 400px;
+      height: 400px;
+      background-color: gray;
+      position: fixed;
+      top:50%;
+      left: 50%;
+      margin-left: -200px;
+      margin-top:-200px;
+      text-align: center;
+      padding-top:100px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1 id="text">100</h1>
+    <button id="btn">开始</button>
+  </div>
+  <script>
+    var num = 100;
+    var isRun = true; 
+    var timer = null;
+    var oText = document.getElementById("text");
+    var oBtn = document.getElementById("btn");
+
+    oBtn.onclick = function(){
+      if(isRun){
+        timer = setInterval(function(){
+          oText.innerText = --num;
+          oBtn.innerText = '暂停';
+        },1000)
+      }else{
+        clearInterval(timer);
+        oBtn.innerText = '开始';
+      }
+      isRun = !isRun;
+    }
+  </script>
+</body>
+</html>

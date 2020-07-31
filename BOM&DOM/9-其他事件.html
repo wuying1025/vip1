@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin:20px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+  <div class="box">4</div>
+  <script>
+    var oBox = document.getElementsByClassName("box");
+
+    // oBox[1].onclick = function(){
+    //   // oBox[0].innerText = "hello";
+    //   this.innerText = "hello"
+    // }
+
+    // oBox[0].onmouseover = function(){
+    //   console.log("移入")
+    // }
+    // oBox[1].onmouseover = function(){
+    //   console.log("移入")
+    // }
+
+    for(var i=0;i<oBox.length;i++){
+      oBox[i].onmouseover = function(){
+        // console.log("移入")
+        // console.log(i);
+        // console.log(oBox[i].innerText);
+        console.log(this.innerText)
+      }
+    }
+    console.log(i)
+  </script>
+</body>
+</html>
