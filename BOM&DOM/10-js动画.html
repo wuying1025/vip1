@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 50px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    var oBox = document.getElementsByClassName("box")[0];
+    var timer;
+
+    oBox.onmouseover = function(){
+      clearInterval(timer);
+      var _width = 200;
+      var _this = this;
+      timer = setInterval(function(){
+        if(_width<600){
+          _width += 10
+          _this.style.width = _width+"px";
+        }else{
+          clearInterval(timer);
+        }
+      },16)
+      
+    }
+
+    // style.width 只写（仅用它来设置宽度）
+    // offsetWidth 只读（获取元素宽度）
+    oBox.onmouseout = function(){
+      clearInterval(timer);
+      var _this = this;
+      var _widht = this.offsetWidth;
+      timer = setInterval(function(){
+        if(_widht>200){
+          _widht -= 10;
+          _this.style.width = _widht+"px";
+        }else{
+          clearInterval(timer);
+        }
+      },16)
+    }
+  </script>
+</body>
+</html>
