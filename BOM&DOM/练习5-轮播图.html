@@ -89,42 +89,85 @@
     var numBtn = document.getElementsByClassName("num-btn");
     var imgList = document.getElementsByClassName("img-list");
     var arrBtn = document.getElementsByClassName("arr-btn");
+    var oBox = document.getElementsByClassName("box")[0];
     var nowIndex = 0;
+    var timer;
+
+    //切换指定图片
+    function changeImage(index){
+      for(var j=0;j<numBtn.length;j++){
+        numBtn[j].classList.remove("active");
+        imgList[j].classList.remove("active");
+      }
+      numBtn[index].classList.add("active");
+      imgList[index].classList.add("active");
+      nowIndex = index;
+    }
 
     // 数字按钮
     for(var i = 0;i<numBtn.length;i++){
       numBtn[i].index = i;
       numBtn[i].onmouseover = function(){
-        for(var j=0;j<numBtn.length;j++){
-          numBtn[j].classList.remove("active");
-          imgList[j].classList.remove("active");
-        }
-        nowIndex = this.index;
-        this.classList.add("active");
-        imgList[this.index].classList.add("active");
+        changeImage(this.index)
+
+        // for(var j=0;j<numBtn.length;j++){
+        //   numBtn[j].classList.remove("active");
+        //   imgList[j].classList.remove("active");
+        // }
+        // nowIndex = this.index;
+        // this.classList.add("active");
+        // imgList[this.index].classList.add("active");
       }
     }
 
+
+
     //箭头按钮 - 向右
     arrBtn[1].onclick = function(){
-      var nextIndex = ++nowIndex;
-      for(var j=0;j<numBtn.length;j++){
-        imgList[j].classList.remove("active");
-        numBtn[j].classList.remove("active");
-      }
-      numBtn[nextIndex].classList.add("active");
-      imgList[nextIndex].classList.add("active");
+      var nextIndex = (++nowIndex)%5;
+      // if(nextIndex == 5){
+      //   nextIndex = 0
+      // }
+      changeImage(nextIndex);
+      // for(var j=0;j<numBtn.length;j++){
+      //   imgList[j].classList.remove("active");
+      //   numBtn[j].classList.remove("active");
+      // }
+      // numBtn[nextIndex].classList.add("active");
+      // imgList[nextIndex].classList.add("active");
     }
     //箭头按钮 - 向左
     arrBtn[0].onclick = function(){
       var prevIndex = --nowIndex;
-      for(var j=0;j<numBtn.length;j++){
-        imgList[j].classList.remove("active");
-        numBtn[j].classList.remove("active");
+      if(prevIndex == -1){
+        prevIndex = 4;
       }
-      numBtn[prevIndex].classList.add("active");
-      imgList[prevIndex].classList.add("active");
+      changeImage(prevIndex);
+      // for(var j=0;j<numBtn.length;j++){
+      //   imgList[j].classList.remove("active");
+      //   numBtn[j].classList.remove("active");
+      // }
+      // numBtn[prevIndex].classList.add("active");
+      // imgList[prevIndex].classList.add("active");
     }
+
+    // 鼠标移入事件
+    oBox.onmouseover = function(){
+      clearInterval(timer);
+    }
+    oBox.onmouseout = function(){
+      run();
+    }
+
+    // 定时播放
+    function run(){
+      timer = setInterval(function(){
+      // arrBtn[1].onclick()
+        var nextIndex = (++nowIndex)%5;
+        changeImage(nextIndex);
+      },1000)
+    }
+    run();
   </script>
 </body>
 </html>
