@@ -70,8 +70,8 @@
     <div class="btn-content">
       <div class="bc-left">
         <ul>
-          <li>&lt;</li>
-          <li>&gt;</li>
+          <li class="arr-btn">&lt;</li>
+          <li class="arr-btn">&gt;</li>
         </ul>
       </div>
       <div class="bc-right">
@@ -88,7 +88,10 @@
   <script>
     var numBtn = document.getElementsByClassName("num-btn");
     var imgList = document.getElementsByClassName("img-list");
+    var arrBtn = document.getElementsByClassName("arr-btn");
+    var nowIndex = 0;
 
+    // 数字按钮
     for(var i = 0;i<numBtn.length;i++){
       numBtn[i].index = i;
       numBtn[i].onmouseover = function(){
@@ -96,9 +99,31 @@
           numBtn[j].classList.remove("active");
           imgList[j].classList.remove("active");
         }
+        nowIndex = this.index;
         this.classList.add("active");
         imgList[this.index].classList.add("active");
       }
+    }
+
+    //箭头按钮 - 向右
+    arrBtn[1].onclick = function(){
+      var nextIndex = ++nowIndex;
+      for(var j=0;j<numBtn.length;j++){
+        imgList[j].classList.remove("active");
+        numBtn[j].classList.remove("active");
+      }
+      numBtn[nextIndex].classList.add("active");
+      imgList[nextIndex].classList.add("active");
+    }
+    //箭头按钮 - 向左
+    arrBtn[0].onclick = function(){
+      var prevIndex = --nowIndex;
+      for(var j=0;j<numBtn.length;j++){
+        imgList[j].classList.remove("active");
+        numBtn[j].classList.remove("active");
+      }
+      numBtn[prevIndex].classList.add("active");
+      imgList[prevIndex].classList.add("active");
     }
   </script>
 </body>
