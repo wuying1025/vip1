@@ -23,6 +23,21 @@
   <script>
     var oBox = document.getElementsByClassName("box");
 
+    oBox[0].onmousedown = function(){
+      console.log("down")
+    }
+    oBox[0].onmouseup = function(){
+      console.log("up");
+    }
+    oBox[0].onmousemove = function(){
+      console.log("move");
+      
+    }
+    oBox[0].onmouseover = function(){
+      console.log("over");
+      
+    }
+
     // oBox[1].onclick = function(){
     //   // oBox[0].innerText = "hello";
     //   this.innerText = "hello"
@@ -35,15 +50,15 @@
     //   console.log("移入")
     // }
 
-    for(var i=0;i<oBox.length;i++){
-      oBox[i].onmouseover = function(){
-        // console.log("移入")
-        // console.log(i);
-        // console.log(oBox[i].innerText);
-        console.log(this.innerText)
-      }
-    }
-    console.log(i)
+    // for(var i=0;i<oBox.length;i++){
+    //   oBox[i].onmouseover = function(){
+    //     // console.log("移入")
+    //     // console.log(i);
+    //     // console.log(oBox[i].innerText);
+    //     console.log(this.innerText)
+    //   }
+    // }
+    // console.log(i)
   </script>
 </body>
 </html>

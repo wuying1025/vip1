@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 400px;
+      height: 50px;
+      border:1px solid black;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .content{
+      height: 50px;
+      width: 0;
+      line-height: 50px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="content">0%</div>
+  </div>
+  <button class="btn">开始</button>
+  <script>
+    var content = document.getElementsByClassName("content")[0];
+    var oBtn = document.getElementsByClassName("btn")[0];
+
+    oBtn.onclick = run;
+    var num = 0;
+    function run(){
+      if(content.offsetWidth<400){
+        content.style.width = (content.offsetWidth + 4) + "px";
+        content.innerText = (++num) + "%";
+        requestAnimationFrame(run)
+      }
+    }
+    // oBtn.onclick = function(){
+    //   var num = 0;
+    //   var timer = setInterval(function(){
+    //     if(content.offsetWidth<400){
+    //       content.style.width = (content.offsetWidth + 4) + "px";
+    //       content.innerText = (++num) + "%";
+    //     }else{
+    //       clearInterval(timer);
+    //     }
+    //   },16)
+    // }
+  </script>
+</body>
+</html>
