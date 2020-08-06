@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+    }
+    .box{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: fixed;
+      top:0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    var oBox = document.getElementsByClassName("box")[0];
+
+    oBox.onmousedown = function(event){
+      var oBoxTop = oBox.offsetTop;
+      var oBoxLeft = oBox.offsetLeft;
+      var pointTop = event.clientY;
+      var pointLeft = event.clientX;
+      var _left = pointLeft - oBoxLeft;
+      var _top = pointTop - oBoxTop;
+      document.onmousemove = function(event){
+        // console.log(event.clientY,event.clientX);
+        oBox.style.top = event.clientY - _top + "px";
+        oBox.style.left = event.clientX - _left + "px";
+      }
+
+    }
+
+    oBox.onmouseup = function(){
+      document.onmousemove = null;
+    }
+
+
+    // var obj = {
+    //   showName : function(){
+    //     console.log("小明")
+    //   }
+    // }
+    // oBox.onclick = function(){
+    //   obj.showName();
+    // }
+    // setTimeout(function(){
+    //   obj.showName = null;
+    // },3000)
+  </script>
+</body>
+</html>
