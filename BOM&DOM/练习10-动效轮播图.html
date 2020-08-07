@@ -134,13 +134,10 @@
       isRun = false;
       nextIndex = index;
       // 判断方向
-      if(nextIndex == 1 && nowIndex == 5){//判断右边界
-        direction = -10;
-      }else if(nowIndex == 0 && nextIndex == -1){//判断左边界
+      if(nowIndex == 0 && nextIndex == -1){//判断左边界
         direction = 10;
         imgBox.style.left = "-2450px";
       }else if (nextIndex > nowIndex) {
-
         direction = -10;
       } else if (nextIndex < nowIndex) {
         direction = 10;
@@ -161,7 +158,6 @@
       
       // 控制图片的滚动
       timer = setInterval(function () {
-        console.log(imgBox.offsetLeft,-490 * nextIndex)
         if (imgBox.offsetLeft == -490 * nextIndex) {
           clearInterval(timer);
           isRun = true;
@@ -195,21 +191,21 @@
       changeImg(nowIndex - 1);
     }
 
-    // 鼠标移入停止动画
-    oBox.onmouseover = function(){
-      clearInterval(runTimer);
-    }
-    // 鼠标移出继续
-    oBox.onmouseout = function(){
-      run();
-    }
-    // 定时滚动
-    function run(){
-      runTimer = setInterval(function(){
-        changeImg(nowIndex+1);
-      },2000)
-    }
-    run()
+    // // 鼠标移入停止动画
+    // oBox.onmouseover = function(){
+    //   clearInterval(runTimer);
+    // }
+    // // 鼠标移出继续
+    // oBox.onmouseout = function(){
+    //   run();
+    // }
+    // // 定时滚动
+    // function run(){
+    //   runTimer = setInterval(function(){
+    //     changeImg(nowIndex+1);
+    //   },2000)
+    // }
+    // run()
   </script>
 </body>
 
