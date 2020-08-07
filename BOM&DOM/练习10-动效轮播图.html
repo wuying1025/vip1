@@ -86,8 +86,8 @@
     <div class="btn-bar">
       <div class="left-btn">
         <ul>
-          <li>&lt;</li>
-          <li>&gt;</li>
+          <li class="arr-btn">&lt;</li>
+          <li class="arr-btn">&gt;</li>
         </ul>
       </div>
       <div class="right-btn">
@@ -104,28 +104,53 @@
   <script>
     var numBtn = document.getElementsByClassName("num-btn");
     var imgBox = document.getElementById("img-box");
+    var arrBtn = document.getElementsByClassName("arr-btn");
     var timer;
+    var nowIndex = 0;
+    var nextIndex = 0;
+    var direction = 0;
+    
+    // 切换图片函数
+    function changeImg(index){
+      nextIndex = index;
+      // 判断方向
+      if(nextIndex > nowIndex){
+        direction = -10;
+      }else if(nextIndex < nowIndex){
+        direction = 10;
+      }
+      // 控制数字按钮选中状态
+      for(var j=0;j<numBtn.length;j++){
+        numBtn[j].classList.remove("active");
+      } 
+      numBtn[nextIndex].classList.add("active");
+      // 控制图片的滚动
+      timer = setInterval(function(){
+        if(imgBox.offsetLeft==-490 * nextIndex){
+          clearInterval(timer);
+          nowIndex = nextIndex;
+        }else{
+          imgBox.style.left = imgBox.offsetLeft + direction + "px";
+        }
+        
+      },16)
+    }
+
+    // 数字按钮事件
     for(var i=0;i<numBtn.length;i++){
       numBtn[i].index = i;
       numBtn[i].onclick = function(){
-        var _this = this
-
-        // 控制数字按钮选中效果
-        for(var j=0;j<numBtn.length;j++){
-          numBtn[j].classList.remove("active");
-        } 
-        this.classList.add("active");
-        //控制图片滚动的
-        timer = setInterval(function(){
-          if(imgBox.offsetLeft==-490 * _this.index){
-            clearInterval(timer);
-          }else{
-            imgBox.style.left = imgBox.offsetLeft - 10 + "px";
-          }
-          
-        },16)
-
+        changeImg(this.index);
       }
+    }
+    
+    // 向右按钮
+    arrBtn[1].onclick = function(){
+      changeImg(nowIndex+1);
+    }
+     // 向左按钮
+     arrBtn[0].onclick = function(){
+      changeImg(nowIndex-1);
     }
   </script>
 </body>
