@@ -118,13 +118,20 @@
     var numBtn = document.getElementsByClassName("num-btn");
     var imgBox = document.getElementById("img-box");
     var arrBtn = document.getElementsByClassName("arr-btn");
+    var oBox = document.getElementsByClassName("box")[0];
     var timer;
+    var runTimer;
     var nowIndex = 0;
     var nextIndex = 0;
     var direction = 0;
+    var isRun = true;
 
     // 切换图片函数
     function changeImg(index) {
+      if(!isRun){//如果isRun 为 false 那么跳出函数
+        return false;//如果函数中遇到return 函数结束运行
+      } 
+      isRun = false;
       nextIndex = index;
       // 判断方向
       if(nextIndex == 1 && nowIndex == 5){//判断右边界
@@ -133,6 +140,7 @@
         direction = 10;
         imgBox.style.left = "-2450px";
       }else if (nextIndex > nowIndex) {
+
         direction = -10;
       } else if (nextIndex < nowIndex) {
         direction = 10;
@@ -153,8 +161,10 @@
       
       // 控制图片的滚动
       timer = setInterval(function () {
+        console.log(imgBox.offsetLeft,-490 * nextIndex)
         if (imgBox.offsetLeft == -490 * nextIndex) {
           clearInterval(timer);
+          isRun = true;
           if(nextIndex == 5){//右边界
             nowIndex = 0;
             imgBox.style.left = 0;
@@ -165,7 +175,7 @@
           imgBox.style.left = imgBox.offsetLeft + direction + "px";
         }
 
-      }, 16)
+      }, 8)
     }
 
     // 数字按钮事件
@@ -184,6 +194,22 @@
     arrBtn[0].onclick = function () {
       changeImg(nowIndex - 1);
     }
+
+    // 鼠标移入停止动画
+    oBox.onmouseover = function(){
+      clearInterval(runTimer);
+    }
+    // 鼠标移出继续
+    oBox.onmouseout = function(){
+      run();
+    }
+    // 定时滚动
+    function run(){
+      runTimer = setInterval(function(){
+        changeImg(nowIndex+1);
+      },2000)
+    }
+    run()
   </script>
 </body>
 
