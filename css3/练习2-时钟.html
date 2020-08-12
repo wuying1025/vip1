@@ -40,21 +40,72 @@
     .clock li:nth-child(5n+1){
       height: 15px;
     }
+    .hour,.minute,.second{
+      position: absolute;
+      left: 50%;
+      /* transform: translateX(-50%) translateY(-100%); */
+      transform: translate(-50%,-100%);
+      transform-origin: bottom center;
+      top:50%;
+    }
+    .hour{
+      width: 12px;
+      height: 30px;
+      background-color: red;
+    }
+    .minute{
+      width: 8px;
+      height: 40px;
+      background-color: blue;
+    }
+    .second{
+      width: 4px;
+      height: 60px;
+      background-color: green;
+    }
   </style>
 </head>
 <body>
   <div class="box">
     <div class="clock">
       <ul class="kd"></ul>
+      <div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+        <div></div>
+      </div>
     </div>
   </div>
   <script>
     var kd = document.getElementsByClassName("kd")[0];
+    var oHour = document.querySelector(".hour");
+    var oMinute = document.querySelector(".minute");
+    var oSecond = document.querySelector(".second");
     var htmlStr = "";
+    
     for(var i=0;i<60;i++){
       htmlStr+="<li style='transform:rotate("+ i*6 +"deg)'></li>";
     }
     kd.innerHTML = htmlStr;
+
+    
+
+    setInterval(function(){
+      run()
+    },1000)
+
+    function run(){
+      var timer = new Date();
+      var nowHour = timer.getHours();
+      var nowMinute = timer.getMinutes();
+      var nowSecond = timer.getSeconds();
+      oSecond.style.transform = "translate(-50%,-100%) rotate("+ nowSecond*6 +"deg)";
+      oMinute.style.transform = "translate(-50%,-100%) rotate("+ nowMinute*6 +"deg)";
+      oHour.style.transform = "translate(-50%,-100%) rotate("+ nowHour*30 +"deg)"
+    }
+    run();
+
   </script>
 </body>
 </html>
