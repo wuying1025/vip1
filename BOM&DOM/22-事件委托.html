@@ -18,8 +18,10 @@
     var num = 1;
 
     oBox.onclick = function(event){
-      console.log(event.target);
-      console.log(event.currentTarget)
+      console.log(event.target);//目标对象  就是谁触发的事件
+      console.log(event.target.innerText);
+      
+      console.log(event.currentTarget)//永远都是事件源 就是this
     }
 
     oBtn.onclick = function(){
