@@ -6,29 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    *{
-      margin:0;
-    }
     .box{
-      display: flex;
-    }
-    .left{
-      width: 200px;
+      width: 400px;
       height: 400px;
-      background-color: blue;
-      flex-shrink: 0;
+      border:2px dashed black;
     }
-    .right{
-      flex-grow: 1;
-      height: 400px;
+    .div1{
+      width: 400px;
+      /* height: 400px; */
+      padding-bottom: 100%;
       background-color: red;
     }
   </style>
 </head>
 <body>
   <div class="box">
-    <div class="left">left</div>
-    <div class="right">right</div>
+    <div class="div1"></div>
   </div>
 </body>
 </html>
