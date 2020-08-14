@@ -14,18 +14,18 @@
 
     oBtn.onclick = function(){
       var _random = Math.random()
-      location.hash = _random;
+      history.pushState(_random,"");
       var arr = [];
       for(var i=0;i<5;i++){
         arr.push(Math.floor(Math.random()*10))
       }
       obj[_random] = arr
-      // console.log(arr);
+      console.log(arr,obj);
     }
-    window.onhashchange = function(){
-      // console.log(location.hash)
-      var _hash = location.hash.slice(1);
-      console.log(obj[_hash]);
+    window.onpopstate = function(e){
+      console.log(e.state)
+      console.log(obj[e.state]);
+      
     }
   </script>
 </body>
