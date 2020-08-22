@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 点击按钮  在ul的内部的后边生成一个元素 -->
+    <button>click</button>
+    <ul id="ul1">
+        <li>11111</li>
+        <li>22222</li>
+        <li>33333</li>
+        <li>44444</li>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $('button').on('click',function(){
+            $('ul').append('<li>'+Math.random()+'</li>')
+        })
+
+
+        // $('li').on('click',function(){
+        //    console.log(  $(this).html()  );
+        // })
+        // jq 事件委托 将事件绑在父元素身上， 点击子元素的时候 ，会发生事件冒泡->出发父元素的点击事件 在父元素的事件回调函数中 判断事件源e.target
+        $('#ul1').on('click','li',function(){
+            console.log( $(this).html() );
+        });
+
+
+    </script>
+</body>
+</html>
