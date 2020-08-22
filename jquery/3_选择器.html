@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* li[class='a']{
+
+        } */
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="a">11</li>
+        <li class="a">11</li>
+        <li>22</li>
+        <li>11</li>
+    </ul>
+    <input type="button" value="123"/>
+
+    <p>
+        <input type="checkbox" name="newsletter" value="Hourly" checked="checked">
+     
+        <input type="checkbox" name="newsletter" value="Daily">
+        <input type="checkbox" name="newsletter" value="Weekly">
+     
+        <input type="checkbox" name="newsletter" value="Monthly" checked>
+        <input type="checkbox" name="newsletter" value="Yearly">
+        <input type="file">
+      </p>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // $("li[class='a']").css("background",'red');
+        // $("ul :last-child").css("background",'green');
+        // $("ul :nth-child(3)").css("background",'green');
+        // $('li:eq(3)').css("background",'yellow');
+        $('li:first').css("background",'yellow');
+        $(":button").css("background",'pink');
+        console.log($(":checked"));
+        // $("input")
+        // $(":input") textarea select button
+    </script>
+    
+</body>
+</html>
