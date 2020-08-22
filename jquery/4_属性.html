@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        li{
+            background: palegreen;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,6 +17,17 @@
     <button id="btn">click</button>
     <input type="checkbox" checked="true">
     <div id="div1" class="a">111</div>
+    <ul>
+        <li style="background: palevioletred;">1</li>
+        <li style="background: g">2</li>
+
+        <li>3</li>
+
+        <li>4</li>
+
+        <li>5</li>
+
+    </ul>
     <script src="jquery-1.12.4.js"></script>
     <script>
         // $("#btn").on('click', function () {
@@ -23,8 +39,18 @@
         // })
         // console.log(document.getElementById("a").value)
 
-        console.log( $("#a").attr("value") );
+        // console.log( $("#a").attr("value") );
+        // $('#div1').css("border","1px solid #000")
+        $('#div1').css({
+            width: 200,
+            height: 200,
+            background: 'red',
+            border: '1px solid #000'
+        })
 
+        // console.log($('#div1').css("background-color"));
+        // 集合中的第一个元素的
+        console.log($('li').css("background-color"));
 
     </script>
 </body>
