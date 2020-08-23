@@ -47,7 +47,8 @@
             let
                  1 定义变量 没有变量提升
                  2 不能重复声明
-                 3 
+                 3 let 块级作用域
+                 4 临时失效区
 
         */
         // 2 不能重复声明
@@ -81,12 +82,21 @@
         //     }, 100);
         // }
         // let定义的变量 块级作用域
-        for(let i=0; i<5; i++){  // 0 1 2 3 4
+        /*for(let i=0; i<5; i++){  // 0 1 2 3 4
             setTimeout(function () {
                 console.log(i);
             },100);
         }
+        */
+        // 4  let临时失效 暂时性死区 （let定义的变量  在代码块内 到定义let这一行往上 临时失效 ）
+        var a = 10;
         
+        function fn(){
+            console.log(a);
+            let a = 20;
+        }
+        fn();
+
 
 
 

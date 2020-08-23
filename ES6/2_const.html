@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>const常量</title>
+</head>
+<body>
+    <script>
+        // const  !!定义常量 
+            //  1 定义变量 没有变量提升
+            //  2 不能重复声明
+            //  3 let 块级作用域
+            //  4 临时失效区
+        // 引用数据类型的常量 地址 指针不能变 
+        // const a = 10;
+        // a = 19;
+        // console.log(a);
+        
+        const obj = {
+            name:'zs',
+            age:18
+        }
+        // obj = {
+        //     name:'lisi'
+        // }
+        Object.freeze(obj);
+        obj.name = 'lisi';
+        console.log(obj);
+
+        // const arr = [1,2,3];
+        // arr[0]= 8;
+        // console.log(arr);
+
+        // 复习js
+        // var a = 10;
+        // var b = a;
+        // a = 20;
+        // console.log(a,b);
+        
+
+        // var arr1 = [1,2,3];
+        // var arr2 = arr1;  //[1,2,3]
+        // arr1[0] = 8; // [8 ,2, 3]
+        // console.log(arr1,arr2);
+
+
+
+        
+
+      
+    </script>
+
+</body>
+</html>
