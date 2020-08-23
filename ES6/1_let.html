@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+            变量 
+                基本数据类型  string number boolea null undefined (栈内存)
+                        1 变量定义了没有赋值
+                        2 数组索引越界
+                        3 访问对象没有属性
+                        4 函数没有return 默认返回undefined
+                引用数据类型  array object （堆内存）
+        */
+
+        // var a ;
+        // console.log(a)
+        // var arr = [1,2,3];
+        // console.log(arr[4]);
+        // var obj = {
+        //     name:'zs',
+        //     age:20
+        // }
+        // console.log(obj.school);
+
+        // function add(num1,num2){
+        //     var sum =  num1+num2;
+        //     return sum;
+        // }
+
+        // console.log( add(1,3)  );
+
+        // 变量提升 var 定义变量 当前作用域的最上边 定义这个变量，没有赋值
+        /* 
+            // var x;
+            console.log(x);
+            var x = 20;
+         */
+        /* 
+            let
+                 1 定义变量 没有变量提升
+                 2 不能重复声明
+                 3 
+
+        */
+        // 2 不能重复声明
+        // var q = 10;
+        // var q = 20;
+        // let q = 30;
+        // let q = 40;
+        // console.log(q);
+
+        // 3 let 块级作用域
+        // var x = true;
+        // if(x){
+        //     var y = 10;
+        // }
+        // console.log(y);
+        /*
+        let x = true;
+        if(x){
+            let y = 20;
+            console.log(y);
+        }
+        {
+            let m = 100
+        }
+        console.log(m); // y is not defined
+        */
+
+        // for (var i = 0; i < 5; i++) {   //i=5 
+        //     setTimeout(function () {
+        //         console.log(i);
+        //     }, 100);
+        // }
+        // let定义的变量 块级作用域
+        for(let i=0; i<5; i++){  // 0 1 2 3 4
+            setTimeout(function () {
+                console.log(i);
+            },100);
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
