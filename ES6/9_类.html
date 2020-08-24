@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类 es5</title>
+</head>
+<body>
+    <script>
+        /*
+            类 具有相同属性和方法的集合
+        */ 
+        // var obj = {
+        //     name:'zs',
+        //     age:20,
+        //     say:function(){
+        //         console.log('sdkl;ghjkl');
+        //     }
+        // }
+        // 类 构造函数 
+        function Person(name,age){
+            this.name = name,
+            this.age = age,
+            this.eat = function(){
+                console.log('我正在吃。。。')
+            }
+        }
+
+        var p1 = new Person('zs',20);
+        var p2 = new Person('lisi',18);
+        var p3 = new Person('wangwu',19);
+
+
+        console.log(p1);
+        console.log(p2);
+        console.log(p3);
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
