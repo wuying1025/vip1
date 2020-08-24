@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 获取屏幕宽度
+        var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        function Leaf(){
+            this.width = Math.random()*50+100;   //100-150
+            this.left = Math.random()* (clientWidth-this.width);  //0 - (clientWidth-this.width)
+            this.top = 0;
+
+            // dom元素 图片
+            var img = new Image(); //动态创建图片
+            img.src= "img/"+ (Math.floor( Math.random()*4 )+1) +".png"  //1-4 整数随机选一个 0-4 0 - 3+1
+            img.style.width = this.width +"px";
+            img.style.left = this.left +"px";
+            img.style.top = this.top +"px";
+
+            this.img = img;
+        }
+        // 初始化 - >插入页面中
+        Leaf.prototype.init = function(){
+            // 讲leaf的img插入页面中 
+            document.body.appendChild(this.img);
+        }
+
+        // var leaf1 = new Leaf();//创建leaf1 树叶对象
+        // leaf1.init();
+
+        for(var i=0; i<10; i++){
+            var leaf = new Leaf();
+            leaf.init();
+        }
+
+
+
+
+        
+    </script>
+</body>
+</html>
