@@ -17,15 +17,25 @@
         //         console.log('sdkl;ghjkl');
         //     }
         // }
-        // 类 构造函数 
+        /*  
+            类 构造函数   this指向 ->new 实例化对象
+                1 属性写在构造函数中
+                2 方法protottype原型对象下  
+        */
         function Person(name,age){
             this.name = name,
-            this.age = age,
-            this.eat = function(){
-                console.log('我正在吃。。。')
-            }
+            this.age = age
+            // this.eat = function(){ //new Function()
+            //     console.log('我正在吃。。。')
+            // }
+        }
+        // prototype原型对象 所有的构造函数都有一个prototype属性 ，指向原型对象 
+        // 添加到原型对象下的属性和方法 被所有实例化对象所共享 (如果方法添加到原型对象下 new 所有实例化对象 都有这个方法)
+        Person.prototype.eat = function(){
+            console.log('我正在吃。。。')
         }
 
+        // new 实例化对象
         var p1 = new Person('zs',20);
         var p2 = new Person('lisi',18);
         var p3 = new Person('wangwu',19);
