@@ -1,51 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        img{
+        img {
             position: absolute;
         }
     </style>
 </head>
+
 <body>
     <script>
         // 获取屏幕宽度
         var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
-        function Leaf(){
-            this.width = Math.random()*50+100;   //100-150
-            this.left = Math.random()* (clientWidth-this.width);  //0 - (clientWidth-this.width)
+        var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+        function Leaf() {
+            this.width = Math.random() * 50 + 100;   //100-150
+            this.left = Math.random() * (clientWidth - this.width);  //0 - (clientWidth-this.width)
             this.top = 0;
 
             // dom元素 图片
             var img = new Image(); //动态创建图片
-            img.src= "img/"+ (Math.floor( Math.random()*4 )+1) +".png"  //1-4 整数随机选一个 0-4 0 - 3+1
-            img.style.width = this.width +"px";
-            img.style.left = this.left +"px";
-            img.style.top = this.top +"px";
+            img.src = "img/" + (Math.floor(Math.random() * 4) + 1) + ".png"  //1-4 整数随机选一个 0-4 0 - 3+1
+            img.style.width = this.width + "px";
+            img.style.left = this.left + "px";
+            img.style.top = this.top + "px";
 
             this.img = img;
         }
         // 初始化 - >插入页面中
-        Leaf.prototype.init = function(){
+        Leaf.prototype.init = function () {
             // 讲leaf的img插入页面中 
             document.body.appendChild(this.img);
+        }
+        // 下落方法
+        Leaf.prototype.fall = function () {
+            // setTimeout(() => {
+            //     setInterval(() => {
+            //         if(){
+            //             清掉
+            //         }else{
+            //             +5
+            //         }
+            //         this.img.style.top = this.img.offsetTop + 5 + "px";
+            //     }, 20);
+            // }, 1000);
+
+            // offsetTop获取top 只能读 
+            // 起跑时间
+            setTimeout(() => {
+                // 速度
+                this.timer = setInterval(() => {
+                    // 如果叶子到底了 停
+                    if (this.img.offsetTop >= clientHeight - this.img.offsetHeight) {
+                        clearInterval(this.timer);
+                    } else {
+                        this.img.style.top = this.img.offsetTop + 5 + "px";
+                    }
+                }, 20);
+            }, Math.random() * 1000); //0-1000
         }
 
         // var leaf1 = new Leaf();//创建leaf1 树叶对象
         // leaf1.init();
-
-        for(var i=0; i<10; i++){
+        var leafList = []
+        for (var i = 0; i < 10; i++) {
             var leaf = new Leaf();
+            leafList.push(leaf);
             leaf.init();
+        }
+        // 点击页面 叶子下落
+        document.onclick = function () {
+            for (var i = 0; i < leafList.length; i++) {
+                leafList[i].fall();
+            }
         }
 
 
 
 
-        
+
     </script>
 </body>
+
 </html>
