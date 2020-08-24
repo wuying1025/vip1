@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            say(){
+                console.log(this.name +"正咋说。。。。")
+            }
+            // 静态方法  调用 类.方法
+            static xx(){
+                console.log("我是静态方法")
+            }
+        }
+        // Coder继承Person
+        class Coder extends Person{
+            constructor(name,age){
+                super(name,age); //调用父类构造函数
+                this.xx = "xxx"
+            }
+            coding(){
+                console.log("我正在写代码");
+            }
+        }
+
+        let p1 = new Person('zs',18);
+        let c1 = new Coder('jack',20)
+
+        console.log(p1)
+        console.log(c1);
+        c1.say();
+        c1.coding();
+        Person.xx(); //类.方法
+
+
+        // Obect.freeze()
+        // Array.
+        // new Array()
+        // let arr = [1,2,3]
+        // arr.push(4)
+
+    </script>
+    
+</body>
+</html>
