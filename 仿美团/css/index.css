@@ -67,3 +67,26 @@
     vertical-align: middle;
     transform: scaleY(0.5);
 }
+.store-list-box{
+    padding: 0 0.2rem;
+}
+.store-list{
+    display: flex;
+}
+.img-box{
+    width:1.52rem;
+    margin-right: 0.2rem;
+}
+
+.store-list img{
+    width:1.52rem;
+    height:1.14rem;
+    /* border: 1px solid #e4e4e4; */
+}
+.info-box{
+    flex:1;
+}
+.info-box .title{
+    font-size: 16px;
+    color: #333;
+}

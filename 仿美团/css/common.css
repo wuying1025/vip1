@@ -13,4 +13,17 @@ legend{color:#000;}
 fieldset,img{border:0;}
 /* button,input,select,textarea{font-size:100%;} */
 table{border-collapse:collapse;border-spacing:0;}
-
+.border4{
+    position: relative;
+}
+.border4::after{
+    content:"";
+    width:200%;
+    height:200%;
+    position: absolute;
+    left:0;
+    top:0;
+    border:1px solid #e4e4e4;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+}
