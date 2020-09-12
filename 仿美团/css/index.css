@@ -1,0 +1,35 @@
+.header-box{
+    height: 50px;
+    background: #1C1B20 ;
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+}
+.location-box{
+    width:2.42rem;
+    overflow: hidden;
+    line-height: 50px;
+}
+.search-box{
+    flex:1;
+    height: 30px;
+    border-radius:15px ;
+    background: #fff;
+    margin-top:10px;
+    margin-right: 10px;
+}
+.search-box .icon-soushuo{
+    color:#1C1B20;
+    float: left;
+    margin:8px 0 0 10px
+    /* margin */
+}
+.search-box input{
+    float: left;
+    width:2.8rem;;
+    height: 30px;
+    border: none;
+    outline: none;
+    margin-left:5px;
+}
+/* .search-box input */
