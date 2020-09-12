@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 根元素 */
+        html{
+            font-size: 50px;
+        }
+        #div1{
+            /* display: ; */
+            display: flex;
+            flex-direction: row-reverse ;
+            
+        }
+        #div2{
+            background: #ff0000;
+            /* width:200px;
+            margin-right:30px; */
+            flex:1;
+        }
+        #div3{
+            background: #0000ff;
+            flex:1;
+        }
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li{
+            width:20%;
+            height: 50px;
+            background: #f00;
+        }
+        #div4{
+            width:3rem; /*3*100 */
+            height:3rem; /*48/3= 16*/
+            background: #0f0; 
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 响应式  -->
+
+    <!-- 
+        1 媒体查询 
+        2 百分比 
+        3 弹性盒模型
+        4 rem（相对于根元素html 的font-size） em(相对于父元素)
+        
+    -->
+
+    <div id="div1">
+        <div id="div2">你哈</div>
+        <div id="div3">哈哈</div>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <div id="div4">
+        rem
+    </div>
+</body>
+</html>
