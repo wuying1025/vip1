@@ -33,3 +33,37 @@
     margin-left:5px;
 }
 /* .search-box input */
+/* 分类列表 */
+.cate-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cate-list{
+    width: 20%;
+    text-align: center;
+    color: #333;
+    font-size: 11px;
+}
+.cate-list img{
+    width:44px;
+    height:44px;
+    margin-top:14px;
+}
+/* 商家 */
+.store-title{
+    text-align: center;
+    height: 0.46rem;
+    line-height: 0.456rem;
+    margin:0.3rem 0 0.1rem 0;
+    color: #333;
+    font-size: 17px;
+}
+.store-title::before,.store-title::after{
+    content:"";
+    display: inline-block;
+    width:33px;
+    height: 1px;
+    background:#666;
+    vertical-align: middle;
+    transform: scaleY(0.5);
+}
