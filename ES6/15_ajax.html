@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- ajax-->
+
+    <script>
+        // 1 创建 XMLHttpRequest 对象   
+        var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        // AJAX - 向服务器发送请求
+        // 请求方式   请求地址   是否异步
+        xmlhttp.open("GET", "http://admin.gxxmglzx.com/tender/test/get_type", true);
+        xmlhttp.send();
+
+        // AJAX - 服务器响应
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                // console.log(xmlhttp.responseText);//输出服务端响应的值
+                var res = JSON.parse(xmlhttp.responseText);
+                console.log(res.data);
+            }
+        }
+
+        console.log('哈哈哈哈啊哈');
+
+
+
+
+
+        /*
+            GET POST
+
+
+            readyState
+            0: 请求未初始化
+            1: 服务器连接已建立
+            2: 请求已接收
+            3: 请求处理中
+            4: 请求已完成，且响应已就绪
+            status 状态码
+            200 成功
+            500 服务器错误
+            404 地址错误
+            304 
+            403
+
+
+
+
+
+
+        */
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

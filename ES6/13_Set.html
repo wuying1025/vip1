@@ -35,11 +35,20 @@
 
        console.log( fn(arr1) );
 
-       let s1 = new Set(arr1); //类数组
+       let s1 = new Set(arr1); //类数组 [1,2,3,4,6]
        let arr2 = [...s1];
        console.log(arr2);
+    
+       for(let item of s1.keys()){
+           console.log(item);
+       }
 
-
+       for(let item of s1.values()){
+           console.log(item);
+       }
+       for(let item of s1.entries()){
+           console.log(item);
+       }
 
 
 
