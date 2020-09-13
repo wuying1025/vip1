@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        let arr1 = [1,2,3,4,6,3,2]
+        let arr1 = [1,2,3,4,6,3,2,3,4,2,2,2]
         // Set类似于数组，但是成员的值都是唯一的 ->数组去重
         // let s1 = new Set(arr);
         // s1.add(1);
@@ -22,13 +22,14 @@
             let result = [];//存储不重复元素
             for(let i=0; i<arr.length; i++){
                 let val = arr[i];
-                if(obj[val]){
+                if(obj[val]){ //如果条件成立 证明obj有val属性
                     obj[val] = obj[val] +1; //记录出现次数
                 }else{  
                     obj[val] = 1;
                     result.push(val);
                 }
             }
+            console.log(obj);
             return result;
         }
 
