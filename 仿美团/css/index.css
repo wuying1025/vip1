@@ -72,6 +72,7 @@
 }
 .store-list{
     display: flex;
+    margin:0.2rem 0 0.5rem 0;
 }
 .img-box{
     width:1.52rem;
@@ -81,6 +82,7 @@
 .store-list img{
     width:1.52rem;
     height:1.14rem;
+    display: block;
     /* border: 1px solid #e4e4e4; */
 }
 .info-box{
@@ -89,4 +91,28 @@
 .info-box .title{
     font-size: 16px;
     color: #333;
+}
+.info-box .time{
+    color: #333;
+    font-size: 11px;
+}
+.info-box .num{
+    float: left;
+}
+.info-box .minute{
+    float: right;
+}
+.info-box .delivery span{
+    font-size: 11px;
+    color: #333;
+    line-height: 1.4;
+}
+.line::after{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width:1px;
+    height:6px;
+    margin:0 5px;
+    background: #ccc;
 }
