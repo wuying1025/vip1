@@ -30,31 +30,45 @@
         //     },2000)
         // },3000)
         // 回调地狱
+        // new Promise(function (resolve, reject) {
+        //     setTimeout(function () {
+        //         console.log('第一个请求成功1')
+        //         let data = 1;
+        //         if (data) {
+        //             resolve()
+        //         }
+        //     }, 3000)
+        // }).then(function () {
+        //     return new Promise(function (resolve, reject) {
+        //         console.log('调用resolve成功')
+        //         setTimeout(function () {
+        //             console.log('第二个请求2')
+        //             resolve()
+        //         }, 2000)
+        //     })
+        // }).then(function () {
+        //     console.log('3')
+        // })
+
+        // Promise异步编程的解决方案   将异步请求以同步的方式表达
+
+
+
         new Promise(function (resolve, reject) {
             setTimeout(function () {
                 console.log('第一个请求成功1')
                 let data = 1;
                 if (data) {
-                    resolve()
+                    resolve(1111);
+                }else{
+                    reject();
                 }
             }, 3000)
-        }).then(function () {
-            return new Promise(function (resolve, reject) {
-                console.log('调用resolve成功')
-                setTimeout(function () {
-                    console.log('第二个请求2')
-                    resolve()
-                }, 2000)
-            })
-        }).then(function(){
-            console.log('3')
+        }).then(function (val) {
+            console.log('调用resolve成功',val)
+        }).catch(function(){
+            console.log('失败')
         })
-
-        // Promise异步编程的解决方案   将异步请求以同步的方式表单
-
-
-
-
 
 
 
