@@ -1,0 +1,19 @@
+// 三角箭头 混合宏 根据传的值 判断箭头朝向top 上|bottom 下|left左|right 右
+@mixin arrow($width:30px,$color:#000,$dir:'top') {
+    width:0;
+    height: 0;
+    border:$width solid transparent;
+    @if($dir == top){
+        border-bottom:$width solid $color;
+    }
+    @if($dir == left){
+        border-right:$width solid $color;
+    }
+    @if($dir == right){
+        border-left:$width solid $color;
+    }
+    @if($dir == bottom){
+        border-top:$width solid $color;
+    }
+}
+

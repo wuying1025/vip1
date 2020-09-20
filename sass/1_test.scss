@@ -1,13 +1,8 @@
+@import 'common.scss';
 $color:#f00;
 $width:100px;
 $h:'height';
-// 三角箭头 混合宏
-@mixin arrow($width:30px,$color:#000) {
-    width:0;
-    height: 0;
-    border:$width solid transparent;
-    border-top:$width solid $color;
-}
+
 body{
     // background: $color;
     width:$width;
@@ -17,6 +12,7 @@ body{
     h2{
         background: #0f0;
         #{$h}:300px;
+        border:1px solid #000;
     }
     p{
         background: #ccc;
@@ -37,9 +33,54 @@ body{
         }
     }
 }
+.div1{
+   width:abs(-200px);
+   height:100px+200px;
+   background: #000000;
+}
+.div2{
+    @extend .div1;
+    color:lighten(#f00, 30%);
+}
 
 .arrow{
-    @include arrow();
+    @include arrow(50px,#f00,right);
 }
 
 
+@for $i from 1 through 5{
+    .icon#{$i}{
+        width:20*$i;
+    }
+}
+
+
+@for $i from 1 to 5{
+    .item#{$i}{
+        width:20*$i;
+    }
+}
+
+$list:success error warn;
+@each $item in $list{
+    .#{$item}{
+        width:200px;
+        background: url(#{$item}.jpg);
+    }
+}
+
+$x:3;
+@while ($x<5){
+    .xx#{$x}{
+        width:100px*$x;
+    }
+    $x:$x+1;
+}
+
+@function add($x,$y){
+    @return $x+$y;
+}
+
+.aa{
+    width:add(100px,200px);
+}
