@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+
+    <script>
+        // 节点列表
+        let aLi = document.getElementsByTagName('li');
+        console.log(aLi)
+
+        let arr = [...aLi];
+        console.log(arr)
+
+        let arr2 = Array.from(aLi);
+        console.log(arr2);
+
+
+        console.log(arr2.includes(1));
+
+
+        let arr3 = ['a', 'b', 'c', 'd'];
+
+        for (let i = 0; i < arr3.length; i++) {
+            console.log(arr3[i], i);
+        }
+        /*
+            for of  
+            keys() 索引
+            values() 值
+            entries() [索引,值]
+        */
+        for (elem of arr3.keys()) {
+            console.log(elem);
+        }
+        for (elem of arr3.values()) {
+            console.log(elem);
+        }
+        // [index,elem] = arr 
+        // for(elem of arr3.entries()){
+        //     console.log(elem[0],elem[1]);
+        // }
+        for ([index, elem] of arr3.entries()) {
+            console.log(index, elem);
+        }
+
+
+        arr3.forEach(function (val, index) {
+            console.log(val, index)
+        })
+
+
+        let arr4 = [{
+            name: 'zs',
+            age: 18
+        }, {
+            name: 'lisi',
+            age: 20
+        }, {
+            name: 'wangwu',
+            age: 39
+        },
+        {
+            name: 'zhaoliu',
+            age: 80
+        }];
+
+        // console.log(arr4);
+        // 过滤 返回一个符合func条件的元素数组
+        let arr5 = arr4.filter(function (val, index) {
+            // console.log(val,index)
+            return val.age <= 20;
+        })
+
+        console.log(arr5);
+
+        // map():映射出一个新数组 返回一个新的Array，每个元素为调用func的结果 
+
+        let arr6 = arr4.map(function (obj, index) {
+            return { name: obj.name, age: obj.age * 2 };
+        })
+
+        console.log(arr6);
+
+        let arr7 = [1, 2, 3, 4];
+        let arr8 = arr7.map(function (obj, index) {
+            return obj * 2 + 1;
+        })
+
+        console.log(arr8);
+        // find 用于找出第一个符合条件的数组成员 
+        let arr9 = arr4.find(function(obj,index){
+            return obj.age>20
+        })
+        console.log(arr9);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
