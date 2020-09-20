@@ -1,0 +1,45 @@
+$color:#f00;
+$width:100px;
+$h:'height';
+// 三角箭头 混合宏
+@mixin arrow($width:30px,$color:#000) {
+    width:0;
+    height: 0;
+    border:$width solid transparent;
+    border-top:$width solid $color;
+}
+body{
+    // background: $color;
+    width:$width;
+    /*height:200px;*/
+}
+#container{
+    h2{
+        background: #0f0;
+        #{$h}:300px;
+    }
+    p{
+        background: #ccc;
+        // padding-top:20px;
+        // padding-bottom: 30px;
+        padding:{
+            top:20px;
+            bottom:30px;
+        }
+    }
+    a{
+        color:#f00;
+        &:hover{
+            color: #0f0;
+        }
+        .b{
+            color:#ccc
+        }
+    }
+}
+
+.arrow{
+    @include arrow();
+}
+
+

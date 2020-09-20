@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let name = "zs";
+
+        let obj = {
+            // name:name,
+            // 属性名和属性值 同名简写
+            name,
+            age: 18,
+            // say:function(){
+            //     console.log('叭叭叭  我是'+this.name)
+            // }
+            // 对象方法的简写方式
+            say() {
+                console.log('叭叭叭  我是' + this.name)
+            }
+        }
+
+
+
+
+
+        obj.say();
+        // 动态属性  obj[s1] 
+        let s1 = 'age';
+        console.log(obj[s1]);
+
+        // == 值   === 值和类型
+
+        let obj1 = {
+            name: 'lisi',
+            age: 18
+        }
+
+        let obj2 = {
+            name: "wangwu",
+            age: 20,
+            school: '黑大'
+        }
+
+
+
+        console.log({ ...obj1, ...obj2 })
+
+        console.log(Object.assign(obj1, obj2));
+
+        // 循环对象 for in 
+        for (key in obj2) {
+            console.log(key, obj2[key]);
+        }
+        // 循环对象
+        console.log( Object.keys(obj2) );
+        console.log( Object.values(obj2) );
+        console.log( Object.entries(obj2) );
+
+
+
+
+    </script>
+</body>
+
+</html>
