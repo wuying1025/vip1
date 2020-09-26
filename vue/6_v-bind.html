@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            background: #f00;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- 动态绑定属性v-bind: -->1
+        <div v-bind:id="myId">呵呵</div>
+        <h2 class="red blue">哈哈</h2>
+        <!-- 动态绑定class {class名：true|false} -->
+        <h2 v-bind:class="{red:isRed,blue:isBlue}" @click="toggle">哈哈</h2>
+        <!-- v-bind  简写: -->
+        <h2 :class="{red:isRed,blue:isBlue}" @click="toggle">哈哈</h2>
+        <p :class="[a,b]">呵呵呵</p>
+
+        <div style="width:100px; height:100px; background: #000;">嘻嘻</div>
+        <div :style="styleObj">嘻嘻</div>
+
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                myId:'div2',
+                isRed:true,
+                isBlue:true,
+                a:'a',
+                b:'b',
+                styleObj:{
+                    width:'100px',
+                    height:'200px',
+                    background:'pink'
+                }
+            },
+            methods:{
+                toggle(){
+                    this.isRed = !this.isRed;
+                    this.isBlue = !this.isBlue;
+                }
+            }
+        })
+
+
+    </script>
+</body>
+</html>

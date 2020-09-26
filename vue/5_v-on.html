@@ -36,10 +36,11 @@
             <!-- 事件修饰符 -->
             <div id="div2" @click.stop="f2"></div>
         </div>
+        <!-- 阻止默认行为 -->
         <a href="http://www.baidu.com" @click.prevent="fn()">百度</a>
 
-        <input v-on:keyup.enter="f3()"/>
-
+        <input v-on:keyup.enter="f3"/>
+        <div @click="f5('div5',$event)">div555555</div>
     </div>
     <script src="vue.js"></script>
     <script>
@@ -62,8 +63,12 @@
                 fn(){
                     console.log('hahah');
                 },
-                f3(){
-                    console.log('keyup事件')
+                f3(event){
+                    console.log('keyup事件',event.target.value);
+
+                },
+                f5(val,event){
+                    console.log(val,event);
                 }
             }
         })

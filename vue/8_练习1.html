@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            background: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="proName">
+        <button @click="add">添加</button>
+        <ul>
+            <li v-for="obj in list" @click="change(obj)" :class="{red:obj.isRed}"> {{obj.name}} <button>delete</button></li>
+        </ul>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                list:[
+                    {name:"苹果",isRed:false},
+                    {name:"香蕉",isRed:false}
+                ],
+                proName:''
+            },
+            methods:{
+                add(){
+                    // 获取input的value list数组中push
+                    this.list.push( {name:this.proName,isRed:false} );
+                    // 清空input的value
+                    this.proName = "";
+                },
+                change(obj){
+                    // console.log(obj)
+                    obj.isRed = !obj.isRed;
+                }
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
