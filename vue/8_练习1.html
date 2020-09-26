@@ -17,7 +17,10 @@
         <input type="text" v-model="proName">
         <button @click="add">添加</button>
         <ul>
-            <li v-for="obj in list" @click="change(obj)" :class="{red:obj.isRed}"> {{obj.name}} <button>delete</button></li>
+            <li v-for="(obj,index) in list" @click="change(obj)" :key="obj.name" :class="{red:obj.isRed}"> 
+                {{obj.name}} 
+                <button @click="del(index)">delete</button>
+            </li>
         </ul>
     </div>
 
@@ -42,6 +45,9 @@
                 change(obj){
                     // console.log(obj)
                     obj.isRed = !obj.isRed;
+                },
+                del(idx){
+                    this.list.splice(idx,1)
                 }
             }
         })
