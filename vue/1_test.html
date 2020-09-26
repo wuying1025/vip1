@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2 @click="change">
+            {{msg}}
+        </h2>
+        <p>{{a}}</p>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+
+        let vm = new Vue({
+            // 挂载元素
+            el: "#app",
+            // 数据
+            data: {
+                msg: "hello world",
+                a: "哈哈"
+            }, 
+            methods: {
+                change(){
+                    this.msg = "的法国红酒考虑；‘；"
+                }
+            }
+        })
+
+        console.log(vm.msg);
+        console.log(vm.$el);
+        console.log(vm.$data.msg);
+
+
+
+    </script>
+</body>
+
+</html>

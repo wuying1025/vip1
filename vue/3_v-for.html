@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 循环 -->
+
+    <div id="app">
+        <button @click="fn">click</button>
+        <ul>    
+            <!-- obj循环数组取到的每一个元素 循环的arr对组 -->
+            <li v-for="obj in arr"> {{obj}}</li>
+        </ul>
+
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        // 双向数据绑定   数据变化-> 页面自动变化
+        new Vue({
+            // 挂载元素
+            el:"#app",
+            data:{
+                arr:['zhangsan','lisi','wangwu']
+            },
+            // 写方法
+            methods:{
+                fn(){
+                    // 点击按钮  arr中添加 zhaoliu
+                    this.arr.push('zhaoliu');
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
