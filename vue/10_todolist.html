@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #app {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        #app h2 {
+            text-align: center;
+        }
+
+        li .right {
+            float: right;
+        }
+
+        h2 {
+            padding: 20px;
+        }
+
+        .red {
+            background: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>todolist</h2>
+        <hr />
+        <div>
+            名称：<input type="text" v-model="name" />
+            价格：<input type="text" v-model="price" />
+            <button @click="add()">添加</button>
+            <input type="text" v-model="searchVal" @keyup="search()">
+            <button>搜索</button>
+        </div>
+        <ul>
+            <!-- 如果obj的isInclude == true 显示 -->
+            <li v-for="(obj,index) in list" :class="{red:obj.isRed}" @click="change(obj)" v-if="obj.isInclude">
+                <input type="checkbox" v-model="obj.isRed">
+                <span>{{obj.name}}</span>
+                <span>{{obj.price}}</span>
+                <span class="right" @click.stop="del(index)">[X]</span>
+            </li>
+        </ul>
+        <div>
+            <button @click="delAll()">删除选中</button>
+            总价{{total()}}
+        </div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                list: [
+                    {
+                        name: '苹果',
+                        price: 6,
+                        isRed: false, //true勾选 |false 没有
+                        isInclude:true
+                    },
+                    {
+                        name: '香蕉',
+                        price: 5.9,
+                        isRed: false,
+                        isInclude:true
+                    }
+                ],
+                name: '',
+                price: '',
+                searchVal:''
+            },
+            methods: {
+                add() {
+                    // 获取到输入框的name和price  ->list
+                    this.list.push({
+                        name: this.name,
+                        price: this.price,
+                        isRed: false,
+                        isInclude:true
+                    })
+
+                },
+                change(obj) {
+                    // 修改isRed
+                    obj.isRed = !obj.isRed;
+                },
+                del(index) {
+                    this.list.splice(index, 1);
+                },
+                // 删除选中
+                delAll() {
+                    // this.list数组中 删除所有被勾选的 (isRed == true)
+                    // 过滤出所有isRed false
+                    let arr = this.list.filter((obj) => {
+                        return obj.isRed == false;
+                    })
+                    this.list = arr;
+                },
+                // 计算总价
+                total() {
+                    let sum = 0;
+                    this.list.forEach((obj) => {
+                        if (obj.isRed) { //当勾选
+                            sum += obj.price;
+                        }
+                    })
+                    return sum;
+                },
+                search(){
+                    // console.log(this.searchVal);
+                    // 循环list数组 判断name是否包含searchVal   设置标识isInclude true包含=显示|false不包含=不显示
+                    this.list.forEach((obj)=>{
+                        if(obj.name.includes( this.searchVal )){
+                            obj.isInclude = true;
+                        }else{
+                            obj.isInclude = false;
+                        }
+                    })
+                    // console.log(this.list)
+                }
+            }
+        })
+
+
+
+
+    </script>
+
+</body>
+
+</html>

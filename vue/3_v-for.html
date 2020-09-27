@@ -13,7 +13,7 @@
         <button @click="fn">click</button>
         <ul>    
             <!-- obj循环数组取到的每一个元素 循环的arr对组 -->
-            <li v-for="obj in arr"> {{obj}}</li>
+            <li v-for="(obj,index) in arr"> {{obj}} {{index}}</li>
         </ul>
     </div>
     <script src="vue.js"></script>
