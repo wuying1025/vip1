@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <!-- 父组件 -->
     <div id="app">
         哈哈 
         <my-component  content="it培训。。。。"></my-component>
@@ -15,11 +16,13 @@
         <my-component name="爱扣钉" content="it培训。。。。"></my-component>
          嘻嘻
         <hr>
-        <my-component name="四福科技" content="xxxxxxxxxx"></my-component>
+        <my-component name="四福科技" content="xxxxxxxxxx" @xx="fn"></my-component>
     </div>
     <div id="app2">
         <!-- <my-component></my-component> -->
     </div>
+
+    <!-- 子组件模板 -->
     <template id="temp">
         <div>
             <h2>{{name}} {{count}}</h2>
@@ -29,6 +32,12 @@
     </template>
     <script src="vue.js"></script>
     <script>
+
+        /**
+            父组件->调用子组件 传参->props
+
+            子组件 ->父组件传值  $emit(xx,'要向父组件传递的值')
+        */ 
 
 
         new Vue({
@@ -52,8 +61,17 @@
                     methods: {
                         add() {
                             this.count++;
+                            // 第一个参数 父组件中定义的事件  第二个参数传递的值
+                            this.$emit('xx','子组件的值')
                         }
                     }
+                }
+            }
+            ,
+            methods:{
+                fn(val){
+                    // val获取到子组件传过来的值 
+                    console.log(val);
                 }
             }
         })
