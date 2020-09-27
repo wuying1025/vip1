@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        哈哈 
+        <my-component  content="it培训。。。。"></my-component>
+        呵呵 
+        <my-component name="爱扣钉" content="it培训。。。。"></my-component>
+         嘻嘻
+        <hr>
+        <my-component name="四福科技" content="xxxxxxxxxx"></my-component>
+    </div>
+    <div id="app2">
+        <!-- <my-component></my-component> -->
+    </div>
+    <template id="temp">
+        <div>
+            <h2>{{name}} {{count}}</h2>
+            <p>{{content}}</p>
+            <button @click="add()">++</button>
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+
+
+        new Vue({
+            el: "#app",
+            components: {
+                'my-component': {
+                    template: '#temp',
+                    // props:['name','content'], //接收调用传过来的参数
+                    props:{
+                        name:{
+                            type:String, //类型
+                            default:'哈哈'//默认值
+                        },
+                        content:String
+                    },
+                    data() {
+                        return {
+                            count: 0
+                        }
+                    },
+                    methods: {
+                        add() {
+                            this.count++;
+                        }
+                    }
+                }
+            }
+        })
+
+        new Vue({
+            el: "#app2"
+        })
+
+
+    </script>
+
+</body>
+
+</html>
