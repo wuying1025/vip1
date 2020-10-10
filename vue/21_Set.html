@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="change()">click</button>
+        <ul>
+            <li v-for="obj in list">{{obj}}</li>
+        </ul>
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                list: ['张三', '李四', '王五']
+            },
+            methods:{
+                change(){
+                    // 数组索引修改数组中的元素 页面不会更新  ->使用Vue.set
+                    // this.list[1] = "赵六";
+                    Vue.set(this.list,1,"赵六")
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

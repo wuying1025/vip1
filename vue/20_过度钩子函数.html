@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f00;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <button @click="show()">click</button>
+        <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:after-enter="afterEnter">
+            <div class="ball" v-if="isShow"></div>
+        </transition>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+
+        new Vue({
+            el: "#app",
+            data: {
+                isShow: false
+            }, 
+            methods: {
+                show(){
+                    this.isShow = true;
+                },
+                beforeEnter(el){
+                    console.log('beforeEnter')
+                    el.style.transform = "translate(0,0)"
+                },
+                enter(el,done){
+                    console.log('enter')
+                    el.offsetWidth;
+                    el.style.transform = "translate(150px,300px)"
+                    el.style.transition = "all 2s ease"
+                    done();
+                },
+                afterEnter(){
+                    console.log('afterEnter')
+                    this.isShow = false;
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>
