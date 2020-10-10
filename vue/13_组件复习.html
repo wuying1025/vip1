@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>我是父组件 {{msg}}</h1>
+        <my-component  content="我来自xxx" @xx="callback"></my-component>
+        <my-component name="我是李四" content="我来自yyy"></my-component>
+    </div>
+
+  
+
+    <div id="app2">
+    </div>
+    <template id="temp1">
+        <div>
+            <h2>{{name}} {{count}}</h2>
+            <p>{{content}}</p>
+            <button @click="add()">click</button>
+        </div>
+    </template>
+    <!-- 组件通信  父到子传值props -->
+    <script src="vue.js"></script>
+    <script>
+        // Vue.comp
+        new Vue({
+            el: '#app',
+            data: {
+                msg:'默认值'
+            },
+            methods: {
+                callback(count){
+                    console.log(count);
+                    this.msg = count;
+                }
+            },
+            components: {
+                'my-component': {
+                    template: '#temp1',
+                    // props:['name','content'],
+                    props:{
+                        name:{
+                            type:String,
+                            default:'我是组件'
+                        },
+                        content:String
+                    },
+                    // 组件中的data函数
+                    data() {
+                        return {
+                            count: 0
+                        }
+                    },
+                    methods: {
+                        add() {
+                            this.count++;
+                            // 将count传到父组件
+                            this.$emit('xx',this.count)
+                        }
+                    }
+
+                }
+            }
+        })
+        new Vue({
+            el: "#app2"
+        })
+
+
+    </script>
+
+</body>
+
+</html>
