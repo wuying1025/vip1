@@ -10,3 +10,6 @@
 
 5 安装webpack 和 webpack-cli 
     cnpm i -D webpack webpack-cli
+
+
+6 处理css文件 cnpm i style-loader css-loader -D
