@@ -4,8 +4,9 @@
     <h2>dfghjk ggl; hehe</h2>
     <test></test>-->
     <router-view></router-view>
-
-    <router-link to="/home">首页</router-link>
+    <!-- 路由跳转传参 -->
+    <!-- <router-link :to="{path:'/home',query:{id:666}}">首页</router-link> -->
+    <router-link :to="{name:'myHome',params:{id:888}}">首页</router-link>
     <router-link to="/test">测试页面</router-link>
 
   </div>
