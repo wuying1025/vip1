@@ -3,7 +3,9 @@
         我是首页
         <router-link to="/home/a">a菜单</router-link>
         <router-link to="/home/b">b菜单</router-link>
-
+        {{
+            $store.state.count
+        }}
         <router-view></router-view>
     </div>
 </template>
