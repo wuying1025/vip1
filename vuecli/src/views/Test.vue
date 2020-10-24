@@ -14,8 +14,8 @@
 export default {
   data(){
     return {
-      id:this.$route.query.id //query
-      // id:this.$route.params.id
+      // id:this.$route.query.id //query
+      id:this.$route.params.id
     }
   },
   methods:{
