@@ -36,18 +36,16 @@ export default new Vuex.Store({
     // 1封装一个请求action
     getMovieList({ commit }) {
       console.log('调用了')
-      // 1请求电影数据
+      // 2请求电影数据
       axios.get('https://bird.ioliu.cn/v1?url=https://frodo.douban.com/api/v2/subject_collection/movie_showing/items?start=0&count=10&apiKey=054022eaeae0b00e0fc068c0c0a2102a')
         .then((res) => {
           console.log(res.data.subject_collection_items);
-          // 2请求回来数据 -> 存在list中（调用mutation中的addList方法）
+          // 3请求回来数据 -> 存在list中（调用mutation中的addList方法）
           commit('addList', res.data.subject_collection_items)
         }).catch((error) => {
           console.log(error);
         })
     }
-
-
     // 数据回来修改list ->调用mutations
 
   },
