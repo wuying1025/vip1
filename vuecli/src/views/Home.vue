@@ -6,6 +6,16 @@
         {{
             $store.state.count
         }}
+
+        {{
+            $store.state.a.list
+        }}
+        <ul>
+            <li v-for="(obj,index) in $store.state.b.prolist" :key="index">{{obj.name}}</li>
+        </ul>
+        <button @click="$store.commit('a/add')">添加赵六</button>
+        
+        <!-- {{$store.state.b.prolist}} -->
         <router-view></router-view>
     </div>
 </template>
