@@ -1,9 +1,5 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+const prod = {
+    namespaced: true,
     state: {
         prolist:[
             {
@@ -11,16 +7,21 @@ export default new Vuex.Store({
             },{
                 name:'QQ'
             },{
-                name:'XX'
+                name:'xx'
             }
         ]
     },
     mutations: {
-        
+        // 数组颠倒
+        reverse(state){
+            state.prolist.reverse();
+        }
     },
     getters: {
 
     },
     actions: {
     }
-})
+}
+
+export default prod;

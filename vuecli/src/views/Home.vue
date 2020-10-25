@@ -7,13 +7,17 @@
             $store.state.count
         }}
 
-        {{
-            $store.state.a.list
-        }}
+        <ul>
+            <!-- $store.state.xx     a模块中$store.state.a.xx -->
+            <li v-for="(obj,index) in $store.state.a.list" :key="index">
+                {{obj.name}}
+            </li>   
+        </ul>
         <ul>
             <li v-for="(obj,index) in $store.state.b.prolist" :key="index">{{obj.name}}</li>
         </ul>
         <button @click="$store.commit('a/add')">添加赵六</button>
+        <button @click="$store.commit('b/reverse')">颠倒商品列表数组</button>
         
         <!-- {{$store.state.b.prolist}} -->
         <router-view></router-view>

@@ -1,9 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+const user = {
     namespaced: true,
     state: {
         list:[
@@ -18,6 +13,7 @@ export default new Vuex.Store({
         ]
     },
     mutations: {
+        // 向list数组中添加{name:'zhaoliu'}
         add(state){
             state.list.push({name:'zhaoliu'})
         }
@@ -27,4 +23,6 @@ export default new Vuex.Store({
     },
     actions: {
     }
-})
+}
+
+export default user;
