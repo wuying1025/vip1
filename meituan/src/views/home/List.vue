@@ -5,7 +5,10 @@
         <img class="store-img" :src="obj.img" alt />
         <div class="store-info">
           <h2>{{obj.name}}</h2>
-          <div>{{obj.num}}</div>
+          <div>
+              <Star num="3"></Star>
+              {{obj.num}}
+          </div>
           <div>配送时间：{{obj.minute}}</div>
         </div>
       </li>
@@ -14,11 +17,15 @@
 </template>
 <script>
 import axios from 'axios'
+import Star from '@/components/Star'
 export default {
     data(){
         return {
             list:[]
         }
+    },
+    components:{
+        Star
     },
     created(){
     // 获取列表的数据
