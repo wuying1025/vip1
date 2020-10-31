@@ -11,8 +11,10 @@
           </div>
           <div>配送时间：{{obj.minute}}</div>
         </div>
+
       </li>
     </ul>
+    <img class="loading" v-show="isShow" src="@/assets/images/loading.gif" alt="">
   </div>
 </template>
 <script>
@@ -22,7 +24,9 @@ export default {
     data(){
         return {
             list:[],
-            pageNum:0
+            pageNum:0,
+            isShow:true,  //判断loading是否显示  true显示|false隐藏
+            isFinished:false
         }
     },
     components:{
@@ -36,6 +40,11 @@ export default {
             // this.list.push(...res.data.data.list);
             this.list = [...this.list,...res.data.data.list]
             this.pageNum++;
+            this.isShow = false; //loading隐藏
+            // 判断是不是请求完了
+            if(this.list.length == res.data.data.total){
+              this.isFinished = true
+            }
         }).catch((err)=>{
             console.log(err);
         })
@@ -54,7 +63,8 @@ export default {
           let scrollHeight = document.documentElement.scrollHeight;//整个页面的高度
 
           // console.log(scrollTtop,clientHeight,scrollHeight)
-          if(scrollTtop + clientHeight == scrollHeight){//到底了 请求下10条数据
+          if((scrollTtop + clientHeight == scrollHeight) && !this.isFinished ){//页面到底了 并且 数据没有加载完
+            this.isShow = true; //loading
             this.getData();
           }
 
@@ -74,5 +84,13 @@ export default {
       flex: 1;
     }
   }
+}
+.loading{
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  width:1.4rem;
+  height:1.4rem;
 }
 </style>
