@@ -4,13 +4,13 @@
       <!-- 传过来num = 31  class名 根据num和i对比 
         3  i<=3   active
 
-        half-active
+        half-active i- num在0-1之间的时候
           num   i
           3.5  ->4
           2.5  ->3
           1.1  ->2
           0< (i-num) <1
-          
+
            i<=num(3.8)  1 2 3  active
            0  < i-num  < 1   =>3     half-active
 

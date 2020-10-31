@@ -6,7 +6,7 @@
         <div class="store-info">
           <h2>{{obj.name}}</h2>
           <div>
-              <Star :num="obj.score"></Star>
+              <Star :num="parseFloat(obj.score)"></Star>
               {{obj.num}}
           </div>
           <div>配送时间：{{obj.minute}}</div>
@@ -21,21 +21,44 @@ import Star from '@/components/Star'
 export default {
     data(){
         return {
-            list:[]
+            list:[],
+            pageNum:0
         }
     },
     components:{
         Star
     },
-    created(){
-    // 获取列表的数据
-        axios.get("http://admin.gxxmglzx.com/tender/test/get_store?current=1&size=10")
+    methods:{
+      // 获取数据
+      getData(){
+        axios.get("http://admin.gxxmglzx.com/tender/test/get_store?current="+this.pageNum+"&size=10")
         .then((res)=>{
-            console.log(res.data.data.list);
-            this.list = res.data.data.list;
+            // this.list.push(...res.data.data.list);
+            this.list = [...this.list,...res.data.data.list]
+            this.pageNum++;
         }).catch((err)=>{
             console.log(err);
         })
+      }
+    },
+    created(){
+    // 获取列表的数据
+       this.getData()
+
+        // 判断 当滚动条滚动高度 + 可视区的高度  = 整个页面的高度
+        // 滚动事件
+        window.onscroll = () => {
+         
+          let scrollTtop = document.documentElement.scrollTop;  // 获滚动条滚动高度
+          let clientHeight = document.documentElement.clientHeight;//可视区高度
+          let scrollHeight = document.documentElement.scrollHeight;//整个页面的高度
+
+          // console.log(scrollTtop,clientHeight,scrollHeight)
+          if(scrollTtop + clientHeight == scrollHeight){//到底了 请求下10条数据
+            this.getData();
+          }
+
+        }
     }
 };
 </script>
