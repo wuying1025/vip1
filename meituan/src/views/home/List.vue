@@ -6,7 +6,7 @@
         <div class="store-info">
           <h2>{{obj.name}}</h2>
           <div>
-              <Star num="3"></Star>
+              <Star :num="obj.score"></Star>
               {{obj.num}}
           </div>
           <div>配送时间：{{obj.minute}}</div>

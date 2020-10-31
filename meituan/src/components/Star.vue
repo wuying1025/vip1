@@ -1,14 +1,38 @@
 <template>
   <div>
     <ul>
-        <!-- 传过来num = 3.5  1  class名 根据num和i对比  -->
-      <li v-for="i in 5" :key="i" :class="{
+      <!-- 传过来num = 31  class名 根据num和i对比 
+        3  i<=3   active
+
+        half-active
+          num   i
+          3.5  ->4
+          2.5  ->3
+          1.1  ->2
+          0< (i-num) <1
+          
+           i<=num(3.8)  1 2 3  active
+           0  < i-num  < 1   =>3     half-active
+
+        unactive
+           3.5   >4
+           4     >4
+
+           2.5   >3
+           3     >3
+      -->
+      <li
+        v-for="i in 5"   
+        :key="i"
+        :class="{
           'active':i<=num,
-          'unactive':i>num
-      }"></li>
+          'half-active': ((i-num)>0)&&((i-num)<1),  
+          'unactive':i> Math.ceil(num)
+      }"
+      ></li>
       <!-- <li class="active"></li>
       <li class="half-active"></li>
-      <li class="unactive"></li> -->
+      <li class="unactive"></li>-->
     </ul>
   </div>
 </template>
