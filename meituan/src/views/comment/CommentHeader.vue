@@ -1,22 +1,28 @@
 <template>
   <div class="header-box">
     <div class="store-score">
-      <div class="num">4.8</div>
+      <div class="num">{{list.delivery}}</div>
       <div>商家评分</div>
     </div>
     <div class="score">
-      <div>口味 4分</div>
-      <div>包装 4分</div>
+      <div>口味 <star :num="list.flavor"></star>  {{list.flavor}} 分</div>
+      <div>包装 <star :num="list.packing"></star>   {{list.packing}}分</div>
     </div>
     <div class="peisong-score">
-      <div class="num">4.8</div>
+      <div class="num">{{list.score}}</div>
       <div>配送评分</div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Star from '@/components/Star'
+export default {
+    props:['list'],
+    components:{
+        Star
+    }
+};
 </script>
 
 <style lang="scss" scoped>

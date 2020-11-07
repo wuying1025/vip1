@@ -21,7 +21,7 @@ import Comment from '@/views/comment/index'
 export default {
     data(){
         return {
-            active:0
+            active:1
         }
     },
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="star-container">
     <ul>
       <!-- 传过来num = 31  class名 根据num和i对比 
         3  i<=3   active
@@ -49,7 +49,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ul {
+
+.star-container{
+  display: inline-block;
+  ul {
   display: flex;
   li {
     width: 12px;
@@ -66,4 +69,6 @@ ul {
     background-image: url(./images/star.png);
   }
 }
+}
+
 </style>
