@@ -1,7 +1,7 @@
 <template>
   <div class="list-container">
     <div class="type-box">
-      <span v-for="obj in list.label" :key="obj.id" @click="change(obj.id)">{{obj.name}} ({{obj.count}})</span>
+      <span :class="{active:obj.id == typeId}" v-for="obj in list.label" :key="obj.id" @click="change(obj.id)">{{obj.name}} ({{obj.count}})</span>
     </div>
     <ul class="list-box">
       <li class="list" v-for="obj in list.rate" :key="obj.id">
@@ -18,13 +18,20 @@
 <script>
 export default {
     props:["list"],
+    data(){
+      return {
+        typeId:1 //记录当前的typeId
+      }
+    },
     created(){
         console.log(this.list)
     },
     methods:{
         change(id){
             // 获取当前点击的id 传到父组件
-            this.$emit('update',id)
+            this.$emit('xx',id)
+            // 修改typeId是当前的类型 
+            this.typeId = id;
         }
     }
 };
@@ -44,6 +51,10 @@ export default {
       margin-right: 0.2rem;
       display: inline-block;
       margin-bottom: 0.1rem;
+      &.active{
+        background: #fffbf1;
+        border:1px solid #ffb000;
+      }
     }
   }
   .list-box {

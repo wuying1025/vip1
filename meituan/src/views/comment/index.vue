@@ -3,10 +3,9 @@
     <!-- header -->
     <comment-header :list="list"></comment-header>
     <!-- list -->
-    <comment-list :list="list" @update="fn"></comment-list>
+    <comment-list :list="list" @xx="fn"></comment-list>
   </div>
 </template>
-
 <script>
 import axios from "axios";
 import CommentHeader from "./CommentHeader";
