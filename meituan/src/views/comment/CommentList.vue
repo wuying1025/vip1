@@ -1,23 +1,14 @@
 <template>
   <div class="list-container">
     <div class="type-box">
-      <span>全部</span>
-      <span>差评</span>
-      <span>味道赞</span>
+      <span v-for="obj in list.label" :key="obj.id" @click="change(obj.id)">{{obj.name}} ({{obj.count}})</span>
     </div>
     <ul class="list-box">
-      <li class="list">
-        <img class="list-img" src="http://admin.gxxmglzx.com/tender/upload/test/head1.jpg" alt />
+      <li class="list" v-for="obj in list.rate" :key="obj.id">
+        <img class="list-img" :src="obj.portrait" alt />
         <div class="list-info">
-          <div class="name">薇薇2v</div>
-          <div class="desc">包装很完美诶，虽然送的晚了一点，但是没有凉，串都很好吃，活动力度大，以后点外卖肯定首选你家哦～～～好吃！</div>
-        </div>
-      </li>
-      <li class="list">
-        <img class="list-img" src="http://admin.gxxmglzx.com/tender/upload/test/head1.jpg" alt />
-        <div class="list-info">
-          <div class="name">薇薇2v</div>
-          <div class="desc">包装很完美诶，虽然送的晚了一点，但是没有凉，串都很好吃，活动力度大，以后点外卖肯定首选你家哦～～～好吃！</div>
+          <div class="name">{{obj.name}}</div>
+          <div class="desc">{{obj.content}}</div>
         </div>
       </li>
     </ul>
@@ -25,7 +16,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+    props:["list"],
+    created(){
+        console.log(this.list)
+    },
+    methods:{
+        change(id){
+            // 获取当前点击的id 传到父组件
+            this.$emit('update',id)
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -40,15 +42,19 @@ export default {};
       border: 1px solid #bbb;
       border-radius: 0.28rem;
       margin-right: 0.2rem;
+      display: inline-block;
+      margin-bottom: 0.1rem;
     }
   }
   .list-box {
     .list {
         display: flex;
+        margin-bottom: 0.2rem;
       .list-img {
         width: 0.8rem;
         height: 0.8rem;
         border-radius: 50%;
+        margin-right: 0.2rem;
       }
     }
   }
