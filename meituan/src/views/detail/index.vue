@@ -4,15 +4,20 @@
     <!-- tab切换 -->
     <van-tabs v-model="active" animated>
       <van-tab :title="'点餐'" >点餐页</van-tab>
-      <van-tab :title="'评论'" >评论页</van-tab>
+      <van-tab :title="'评论'" >
+        <!-- 引入评价页的组件 -->
+        <comment></comment>
+      </van-tab>
       <van-tab :title="'商家'" >商家页</van-tab>
     </van-tabs>
-    {{$route.query.id}}
+    <!-- {{$route.query.id}} -->
   </div>
 </template>
 
 <script>
 import DetailHead from "./DetailHead";
+import Comment from '@/views/comment/index'
+
 export default {
     data(){
         return {
@@ -20,7 +25,8 @@ export default {
         }
     },
   components: {
-    DetailHead
+    DetailHead,
+    Comment
   }
 };
 </script>
