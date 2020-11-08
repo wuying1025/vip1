@@ -39,6 +39,7 @@ export default {
         .then(res => {
           console.log(res.data.data);
           this.list = res.data.data;
+          
           // this.score.delivery =
         });
     }
