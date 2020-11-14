@@ -4,7 +4,13 @@
     <!-- 外层父元素 高度固定 -->
     <div class="cate-box">
       <ul>
-        <li v-for="(obj,index) in nav" @click="change(index)" :key="obj.id">{{obj.name}}</li>
+        <!-- 动态绑定class {class名：true|false} -->
+        <li
+          :class="{active:index == currentIndex}"
+          v-for="(obj,index) in nav"
+          @click="change(index)"
+          :key="obj.id"
+        >{{obj.name}}</li>
       </ul>
     </div>
 
@@ -33,17 +39,33 @@ export default {
   data() {
     return {
       nav: [],
-      goods: []
+      goods: [],
+      currentIndex: 0, //记录当前激活的索引
+      scrollY:0,//prodScroll 滚动的高度
+      pos:[] //记录所有分类div的位置prod-cate-box
     };
   },
-  methods:{
-    change(index){
+  methods: {
+    change(index) {
       // 获取到跟index索引对应的 .prod-cate-box
-      let prodCateList = document.getElementsByClassName("prod-cate-box")
-      console.log(prodCateList[index]);
+      let prodCateList = document.getElementsByClassName("prod-cate-box");
       // ele 元素
-      this.prodScroll.scrollToElement(prodCateList[index],300)
-
+      this.prodScroll.scrollToElement(prodCateList[index], 300);
+      this.currentIndex = index;
+    },
+    // 当右侧滚动时候  求-滚动到第几个分类
+    getPos(){
+      let prodCateList = document.getElementsByClassName("prod-cate-box");
+      let H = 0 ;
+      for(let i=0; i<prodCateList.length; i++){
+        if(i == 0){
+          this.pos.push(0)
+        }else{
+          H += prodCateList[i-1].offsetHeight;
+          this.pos.push(H);
+        }
+      }
+      console.log(this.pos);
     }
   },
   created() {
@@ -65,8 +87,17 @@ export default {
           });
           this.prodScroll = new BetterScroll(".pro-box", {
             click: true,
-            bounce: false
+            bounce: false,
+            probeType:3
           });
+          this.prodScroll.on("scroll", position => {
+            // console.log(position.x, position.y);
+            this.scrollY = Math.abs(position.y);
+            console.log(this.scrollY)
+          });
+
+          // 计算每个分类的位置
+          this.getPos();
         });
       });
   }
@@ -84,6 +115,9 @@ export default {
     li {
       padding: 0.18rem 0.24rem 0.44rem;
       background: #f5f5f5;
+      &.active {
+        color: red;
+      }
     }
   }
   .pro-box {
