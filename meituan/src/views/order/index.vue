@@ -1,16 +1,18 @@
 <template>
   <div class="order-container">
     <!-- 左侧分类 -->
+    <!-- 外层父元素 高度固定 -->
     <div class="cate-box">
       <ul>
-        <li v-for="obj in nav" :key="obj.id">{{obj.name}}</li>
+        <li v-for="(obj,index) in nav" @click="change(index)" :key="obj.id">{{obj.name}}</li>
       </ul>
     </div>
 
     <!-- 右侧商品 -->
+    <!--  -->
     <div class="pro-box">
       <div>
-        <div v-for="(obj,index) in goods" :key="index">
+        <div class="prod-cate-box" v-for="(obj,index) in goods" :key="index">
           <h2>{{obj.name}}</h2>
           <ul>
             <li class="prod-list" v-for="prod in obj.content" :key="prod.id">
@@ -34,6 +36,16 @@ export default {
       goods: []
     };
   },
+  methods:{
+    change(index){
+      // 获取到跟index索引对应的 .prod-cate-box
+      let prodCateList = document.getElementsByClassName("prod-cate-box")
+      console.log(prodCateList[index]);
+      // ele 元素
+      this.prodScroll.scrollToElement(prodCateList[index],300)
+
+    }
+  },
   created() {
     axios
       .get(
@@ -44,13 +56,14 @@ export default {
         this.nav = res.data.data.nav;
         this.goods = res.data.data.goods;
 
+        // 数据请求回来
         // 渲染到页面后 -> new BetterScroll
         this.$nextTick(() => {
-          let cateScroll = new BetterScroll(".cate-box", {
+          this.cateScroll = new BetterScroll(".cate-box", {
             click: true,
             bounce: false
           });
-          let prdScroll = new BetterScroll(".pro-box", {
+          this.prodScroll = new BetterScroll(".pro-box", {
             click: true,
             bounce: false
           });
