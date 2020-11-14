@@ -63,6 +63,7 @@ export default {
 <style lang="scss" scoped>
 .order-container {
   display: flex;
+  padding-bottom: 50px;
   .cate-box {
     // 视口高度-上44 -下50
     height: calc(100vh - 94px);

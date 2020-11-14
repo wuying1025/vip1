@@ -1,15 +1,19 @@
 <template>
-  <div>
-    <!-- header -->
-    <comment-header :list="list"></comment-header>
-    <!-- list -->
-    <comment-list :list="list" @xx="fn"></comment-list>
+  <div class="comment-wrapper">
+    <div>
+      <!-- header -->
+      <comment-header :list="list"></comment-header>
+      <!-- list -->
+      <comment-list :list="list" @xx="fn"></comment-list>
+    </div>
   </div>
 </template>
 <script>
 import axios from "axios";
 import CommentHeader from "./CommentHeader";
 import CommentList from "./CommentList";
+import BetterScroll from "better-scroll";
+
 export default {
   data() {
     return {
@@ -39,7 +43,12 @@ export default {
         .then(res => {
           console.log(res.data.data);
           this.list = res.data.data;
-          
+          this.$nextTick(()=>{
+            new BetterScroll(".comment-wrapper",{
+              bounce:false,
+              click:true
+            })
+          })
           // this.score.delivery =
         });
     }
@@ -48,4 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.comment-wrapper{
+  height:calc(100vh - 44px);
+}
 </style>
