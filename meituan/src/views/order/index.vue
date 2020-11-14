@@ -105,18 +105,17 @@ export default {
     scrollY(val) {
       // console.log(val)
       // val在哪个坐标范围内 
+      let cateList = document.querySelectorAll('.cate-list');
       for (let index = 0; index < this.pos.length; index++) {
         let pos1 = this.pos[index];
         let pos2 = this.pos[index+1];
         if(val>= pos1 && val <pos2){
           //  console.log(index);
            this.currentIndex = index;
-           let cateList = document.querySelectorAll('.cate-list');
           //  参数element
            this.cateScroll.scrollToElement(cateList[index],300)
            break;
         }
-
       }
     }
   }
