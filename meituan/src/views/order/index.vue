@@ -6,7 +6,7 @@
       <ul>
         <!-- 动态绑定class {class名：true|false} -->
         <li
-          :class="{active:index == currentIndex}"
+          :class="{active:index == currentIndex,'cate-list':true}"
           v-for="(obj,index) in nav"
           @click="change(index)"
           :key="obj.id"
@@ -41,8 +41,8 @@ export default {
       nav: [],
       goods: [],
       currentIndex: 0, //记录当前激活的索引
-      scrollY:0,//prodScroll 滚动的高度
-      pos:[] //记录所有分类div的位置prod-cate-box
+      scrollY: 0, //prodScroll 滚动的高度
+      pos: [] //记录所有分类div的位置prod-cate-box
     };
   },
   methods: {
@@ -54,14 +54,14 @@ export default {
       this.currentIndex = index;
     },
     // 当右侧滚动时候  求-滚动到第几个分类
-    getPos(){
+    getPos() {
       let prodCateList = document.getElementsByClassName("prod-cate-box");
-      let H = 0 ;
-      for(let i=0; i<prodCateList.length; i++){
-        if(i == 0){
-          this.pos.push(0)
-        }else{
-          H += prodCateList[i-1].offsetHeight;
+      let H = 0;
+      for (let i = 0; i < prodCateList.length; i++) {
+        if (i == 0) {
+          this.pos.push(0);
+        } else {
+          H += prodCateList[i - 1].offsetHeight;
           this.pos.push(H);
         }
       }
@@ -88,18 +88,37 @@ export default {
           this.prodScroll = new BetterScroll(".pro-box", {
             click: true,
             bounce: false,
-            probeType:3
+            probeType: 3
           });
           this.prodScroll.on("scroll", position => {
             // console.log(position.x, position.y);
             this.scrollY = Math.abs(position.y);
-            console.log(this.scrollY)
+            // console.log(this.scrollY)
           });
 
           // 计算每个分类的位置
           this.getPos();
         });
       });
+  },
+  watch: {
+    scrollY(val) {
+      // console.log(val)
+      // val在哪个坐标范围内 
+      for (let index = 0; index < this.pos.length; index++) {
+        let pos1 = this.pos[index];
+        let pos2 = this.pos[index+1];
+        if(val>= pos1 && val <pos2){
+          //  console.log(index);
+           this.currentIndex = index;
+           let cateList = document.querySelectorAll('.cate-list');
+          //  参数element
+           this.cateScroll.scrollToElement(cateList[index],300)
+           break;
+        }
+
+      }
+    }
   }
 };
 </script>
