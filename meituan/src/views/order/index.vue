@@ -23,12 +23,22 @@
           <ul>
             <li class="prod-list" v-for="prod in obj.content" :key="prod.id">
               <img class="prod-img" :src="prod.img" alt />
-              <p>{{prod.name}}</p>
+              <div>
+                <p>{{prod.name}}</p>
+                <p>{{prod.price}}</p>
+              </div>
+              <div class="add-cart">
+                <span class="iconfont icon-jianhao"></span>
+                <span class="num">0</span>
+                <span class="iconfont icon-jiahao-copy"></span>
+              </div>
             </li>
           </ul>
         </div>
       </div>
     </div>
+
+
   </div>
 </template>
 
@@ -143,13 +153,37 @@ export default {
     height: calc(100vh - 94px);
     .prod-list {
       display: flex;
+      position: relative;
+      margin-bottom: 0.1rem;
       .prod-img {
         width: 1.5rem;
       }
       p {
         flex: 1;
       }
+      .add-cart{
+        position: absolute;
+        right:0.2rem;
+        bottom:0;
+        .icon-jianhao{
+          color:#e2e3e5;
+          vertical-align: middle;
+          font-size:  26px;
+
+        }
+        .icon-jiahao-copy{
+          color:#ffc134;
+          vertical-align: middle;
+          font-size: 26px;
+
+        }
+        .num{
+          margin:0 0.1rem;
+          vertical-align: middle;
+        }
+      }
     }
   }
+
 }
 </style>

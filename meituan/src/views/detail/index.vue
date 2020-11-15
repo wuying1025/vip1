@@ -14,7 +14,9 @@
         <van-tab :title="'商家'">商家页</van-tab>
       </van-tabs>
     </div>
-    <!-- {{$route.query.id}} -->
+
+    <!-- 购物车 （为了解决better-scroll 和fix失效问题） -->
+    <div class="cart" v-if="active == 0"></div>
   </div>
 </template>
 
@@ -49,5 +51,13 @@ export default {
 .bs-wrapper {
   height: 100vh;
   overflow: hidden;
+  .cart {
+    height: 50px;
+    background: #3b3b3c;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
 }
 </style>
