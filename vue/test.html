@@ -14,8 +14,9 @@
 
 <body>
     <div id="app">
+        <button @click="change">click</button>
         <ul>
-            <li v-for="(obj,index) in list" :class="{red:index == currentIndex}">{{obj.name}}  索引是：{{index}}</li>
+            <li v-for="(obj) in list" >{{obj}}</li>
         </ul>
     </div>
     <script src="vue.js"></script>
@@ -25,8 +26,17 @@
             el: "#app",
             data: {
                 currentIndex: 0,
-                list: [{ name: '张三' }, { name: '李四' }, { name: '王五' }]
+                list: [1,2,3]
+            },
+            methods:{
+                change(){
+                    // this.list[2] = 666
+                    Vue.set(this.list,2,666);
+                }
             }
+            // created(){
+            //     this.list[1] =666
+            // }
         })
     </script>
 </body>

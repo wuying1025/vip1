@@ -1,7 +1,7 @@
 <template>
   <div class="bs-wrapper">
     <div class="bs-content">
-      <DetailHead></DetailHead>
+      <DetailHead :storeMsg="storeMsg"></DetailHead>
       <!-- tab切换 -->
       <van-tabs v-model="active" animated sticky color="#ffb000">
         <van-tab :title="'点餐'">
@@ -16,7 +16,8 @@
     </div>
 
     <!-- 购物车 （为了解决better-scroll 和fix失效问题） -->
-    <div class="cart" v-if="active == 0"></div>
+    <!-- <div class="cart" v-if="active == 0"></div> -->
+    <cart v-if="active == 0" :storeMsg="storeMsg"></cart>
   </div>
 </template>
 
@@ -25,24 +26,37 @@ import DetailHead from "./DetailHead";
 import Comment from "@/views/comment/index";
 import Order from "@/views/order/index";
 import BetterScroll from "better-scroll";
+import Cart from './../cart'
+import axios from 'axios'
 export default {
   data() {
     return {
-      active: 0
+      active: 0,
+      storeMsg:{}
     };
   },
   components: {
     DetailHead,
     Comment,
-    Order
+    Order,
+    Cart
   },
   mounted() {
     setTimeout(() => {
       let bs = new BetterScroll(".bs-wrapper", {
-        click: true,
+        click: false,
         bounce: false
       });
     }, 1000);
+
+    // 请求商家数据
+    axios.get('http://admin.gxxmglzx.com/tender/test/get_store_id?id='+this.$route.query.id)
+    .then(res=>{
+      this.storeMsg = res.data.data;
+    }).catch(err=>{
+      console.log(err)
+    })
+
   }
 };
 </script>
@@ -51,13 +65,6 @@ export default {
 .bs-wrapper {
   height: 100vh;
   overflow: hidden;
-  .cart {
-    height: 50px;
-    background: #3b3b3c;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
+
 }
 </style>

@@ -18,19 +18,20 @@
     <!--  -->
     <div class="pro-box">
       <div>
-        <div class="prod-cate-box" v-for="(obj,index) in goods" :key="index">
+        <div class="prod-cate-box" v-for="(obj,typeIndex) in goods" :key="typeIndex">
           <h2>{{obj.name}}</h2>
           <ul>
-            <li class="prod-list" v-for="prod in obj.content" :key="prod.id">
+            <li class="prod-list" v-for="(prod,index) in obj.content" :key="prod.id">
               <img class="prod-img" :src="prod.img" alt />
               <div>
                 <p>{{prod.name}}</p>
                 <p>{{prod.price}}</p>
               </div>
               <div class="add-cart">
-                <span class="iconfont icon-jianhao"></span>
-                <span class="num">0</span>
-                <span class="iconfont icon-jiahao-copy"></span>
+                <span class="iconfont icon-jianhao" v-if="prod.count > 0"></span>
+                <span class="num">{{prod.count}}</span>
+                <!-- 添加 -->
+                <span class="iconfont icon-jiahao-copy" @click="$store.commit('add',{typeIndex,index})"></span>
               </div>
             </li>
           </ul>
@@ -87,6 +88,8 @@ export default {
         console.log(res.data.data);
         this.nav = res.data.data.nav;
         this.goods = res.data.data.goods;
+        // vuex中存储商品  调用vuex中mutation中的方法
+        this.$store.commit('save',this.goods);
 
         // 数据请求回来
         // 渲染到页面后 -> new BetterScroll
