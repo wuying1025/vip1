@@ -21,7 +21,7 @@ export default new Vuex.Store({
         Vue.set(prod,'count',prod.count+1)
       }else{
         // prod.count = 1;
-        Vue.set(prod,'count',1)
+        Vue.set(prod,'count',1);
       }
     }
   },
