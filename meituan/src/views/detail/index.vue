@@ -15,7 +15,7 @@
       </van-tabs>
     </div>
 
-    <!-- 购物车 （为了解决better-scroll 和fix失效问题） -->
+    <!-- 购物车 放到bs-content外边 （为了解决better-scroll 和fix失效问题） -->
     <!-- <div class="cart" v-if="active == 0"></div> -->
     <cart v-if="active == 0" :storeMsg="storeMsg"></cart>
   </div>

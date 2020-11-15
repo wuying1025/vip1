@@ -3,9 +3,15 @@
     <div class="cart">
       <div class="circle">
         <span class="iconfont icon-gouwuche"></span>
+        <span class="total" v-if="$store.getters.total>0">{{$store.getters.total}}</span>
       </div>
       <div class="fee">
-          <p>另需配送费{{storeMsg.fee}}元</p>
+
+          <p>
+              <!-- 另需配送费{{storeMsg.fee}}元 -->
+
+              总价{{$store.getters.totalPrice}}
+          </p>
       </div>
       <div class="price">
           <p>{{storeMsg.price}}元起送</p>
@@ -44,13 +50,26 @@ export default {
       color: #c4c4c4;
       font-weight: 700;
     }
+    .total{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        position: absolute;
+        right:0;
+        top:0;
+        background: #f00;
+        color: #fff;
+        text-align: center;
+        line-height: 20px;
+    }
   }
   .fee{
       flex:3;
       margin-left:80px;
       height:50px;
       line-height: 50px;
-      color:#999
+      color:#fff;
+      font-size: 18px;
   }
   .price{
       flex:1;
