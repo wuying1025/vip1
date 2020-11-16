@@ -95,11 +95,11 @@ export default {
         // 渲染到页面后 -> new BetterScroll
         this.$nextTick(() => {
           this.cateScroll = new BetterScroll(".cate-box", {
-            click: true,
+            click: false,
             bounce: false
           });
           this.prodScroll = new BetterScroll(".pro-box", {
-            click: true,
+            click: false,
             bounce: false,
             probeType: 3
           });

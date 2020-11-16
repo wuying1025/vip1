@@ -44,7 +44,7 @@ export default {
   mounted() {
     setTimeout(() => {
       let bs = new BetterScroll(".bs-wrapper", {
-        click: false,
+        click: true,
         bounce: false
       });
     }, 1000);
