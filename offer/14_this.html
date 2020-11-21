@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">11111</div>
+    <script>
+        
+
+        setInterval(()=>{
+            // console.log(this)//this
+        })
+
+        var oDiv = document.getElementById('div1');
+
+        oDiv.onclick = function(){
+            console.log(this);//oDiv
+        }
+
+        var obj = {
+            name:'zs',
+            eat:function(){
+                console.log(this) 
+            }
+        }
+        obj.eat();  //obj
+
+        function Person(name){
+            this.name = name
+        }
+
+        var p1 = new Person('zs'); //this实例化对象 =>p1
+        var p2 = new Person('lisi')//this实例化对象 =>p2
+
+        function fn(x,y){
+            console.log(this,x,y)
+        }
+        fn()//window
+        // this指向 参数1,参数2
+        fn.call(obj,1,2);
+        // this指向 []参数
+        fn.apply(obj,[1,2])
+        // // this指向 参数1,参数2
+        fn.bind(obj,1,2)();
+
+
+    </script>
+
+</body>
+</html>

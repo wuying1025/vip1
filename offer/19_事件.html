@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="http://www.baidu.com">百度</a>
+    <script>
+
+        // 事件属性
+        // e.target
+        // e.keyCode
+        // e.clientX  
+        // e.clientY
+
+        // 阻止事件冒泡
+        // e.stopPropagation()//阻止事件冒泡
+        // e.cancelBubble = true  //ie
+
+        // 阻止默认行为
+        // e.preventDefault(); //标准
+        // e.returnValue = false; //ie
+
+        // return flase
+        var link = document.getElementsByTagName('a')[0]
+        link.onclick = function (e) {
+            console.log(11);
+            // return false;
+            e.preventDefault(); //标准
+            e.returnValue = false; //ie
+        }
+    </script>
+
+</body>
+
+</html>
