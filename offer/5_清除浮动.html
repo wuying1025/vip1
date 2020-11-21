@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            float: left;
+        }
+
+        #div2 {
+            width: 200px;
+            height: 200px;
+            background: #0000ff;
+            float: left;
+
+        }
+        h1{
+            height: 100px;
+            background: #000000;
+        }
+        .parent{
+            /* height: 200px; */
+            /* overflow: hidden; 触发BFC* */
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear:both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 浮动元素 会脱离文档流  空间释放 -->
+    <!-- 解决浮动塌陷问题 
+        1. 父元素加高度
+        2. 父元素overflow:hidden
+        3. 添加块级元素设置  style="clear:both"
+        4. clearfix
+        -->
+    <div class="parent clearfix">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <!-- <div style="clear:both"></div> -->
+        
+    </div>
+
+    <h1></h1>
+
+
+</body>
+
+</html>
