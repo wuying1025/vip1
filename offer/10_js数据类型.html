@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+    <script>
+        var arr = [1,2,3]// new Array()
+        var obj = {name:'zs'}
+        console.log(typeof [1,2,3])  //object
+        console.log(typeof {name:'zs'})   //object
+
+        console.log( Array.isArray(arr) )
+        console.log(Array.isArray(obj))
+
+        console.log(obj instanceof Array) // 判读arr是否是Array的实例化对象
+
+        console.log(obj.constructor == Object);
+        console.log(arr.constructor == Array);
+
+        var a = 10;
+        var b = a;
+        a = 20;
+        console.log(a,b);//20 10
+
+
+        var arr = [1,2,3];
+        var arr2 = arr;
+        arr[1] = 5;
+        console.log(arr,arr2) //[1,5,3]  [1,5,3]
+
+
+        // 深克隆 
+
+        var obj3 = {name:'zs',age:18,father:{name:'zzz'}};
+        function cloneArray(o){
+            var result = {};
+            for(key in o){
+                if(typeof o[key] == "object"){ //引用数据类型
+                    result[key] = cloneArray(o[key]);
+                }else{
+                    result[key] = o[key];
+                }
+            }
+            return result;
+        }
+        var obj4 =  cloneArray(obj3);
+        obj4.father.name = 'zxx';
+        console.log(obj3,obj4);
+
+
+
+    </script>
+
+</body>
+</html>
