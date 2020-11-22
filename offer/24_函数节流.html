@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 节流函数
+        // 当前时间  和 上一次时间  差> 3000 调用fn
+        function throttle(fn,delay){  //回调函数  时间间隔
+            var startTime = 0;
+            return function(){
+                // 如果当前时间和上一次时间对比 大于delay  调用fn
+                var nowTime = Date.now();
+                if(nowTime - startTime > delay){  //大于3000毫秒才调用fn回调
+                    startTime = nowTime;
+                    fn.call(this);
+                }
+            }
+        }
+
+
+        // 每间隔3秒执行一次
+        document.onmousemove = throttle(
+            function(){
+                console.log(Math.random(),this)
+            },
+            3000
+        );  //1 定义startTime 2 返回function赋值给onmousemove
+        
+        // document.onmousemove = function(){
+        //     console.log(Math.random(),this)
+        // }
+
+    </script>
+</body>
+
+</html>
