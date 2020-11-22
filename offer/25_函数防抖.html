@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">click</button>
+
+
+    <script>
+
+        // 函数防抖 函数去抖是一个需要频繁触发的函数，在规定时间内只让最后一次生效，前面的不生效比如 搜索
+        function debounce(fn, delay) {
+            var timer = null; 
+            return function () {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fn.apply(this);
+                }, delay);
+            }
+        }
+
+        var oBtn = document.getElementById('btn');
+        btn.onclick = debounce(  //1声明timer 2返回func赋值给onclick
+            function(){
+                console.log(Math.random())
+            },3000
+        )
+
+        // {"name":"zhangsan"}
+
+    </script>
+
+</body>
+
+</html>

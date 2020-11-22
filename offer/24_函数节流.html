@@ -19,6 +19,7 @@
                 var nowTime = Date.now();
                 if(nowTime - startTime > delay){  //大于3000毫秒才调用fn回调
                     startTime = nowTime;
+                    // fn();//window
                     fn.call(this);
                 }
             }
