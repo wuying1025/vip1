@@ -1,0 +1,31 @@
+{
+  "pages":[
+    "pages/my/my",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f00",
+    "navigationBarTitleText": "Love Coding",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#f00",
+    "position": "bottom",
+    "list": [{
+      "pagePath": "pages/my/my",
+      "text": "点餐",
+      "iconPath": "images/base.png",
+      "selectedIconPath": "images/base-actived.png"
+    }, {
+      "pagePath": "pages/index/index",
+      "text": "吃饭",
+      "iconPath": "images/cloud.png",
+      "selectedIconPath": "images/cloud-actived.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
