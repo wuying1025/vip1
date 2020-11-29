@@ -1,4 +1,40 @@
+page {
+  background-color: #ccc;
+}
+
 .coding {
   color: #f00;
   background-color: #0f0;
+  width: 200px;
+  height: 200px;
+}
+
+.scroll {
+  height: 200px;
+  background-color: #ccc;
+}
+
+.view1{
+  height: 200px;
+  background-color: #ccc;
+  overflow: scroll;
+}
+
+.textarea {
+  background: #ff0000;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+}
+
+.btn1 {
+  width: 200px;
+  height: 60px;
 }
