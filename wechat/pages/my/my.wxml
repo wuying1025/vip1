@@ -1,7 +1,29 @@
 <view class="container">
-  <view>名字是: {{name}}</view>
+  <view wx:for="{{teacher}}" wx:key="id">
+    <checkbox></checkbox>
+    {{item.name}}
+  </view>
+  <button bindtap="sort">随机顺序</button>
+
+  <view wx:if="{{isLogin}}">谢成</view>
+  <view wx:else>未登录</view>
+
+
+  <view hidden="{{true}}">隐藏</view>
+  <view hidden="{{false}}">不隐藏</view>
+
+
+
+
+  <!-- <view>名字是: {{name}}</view>
   <view>年龄是: {{age}}</view>
 
+  <view>{{obj.name}} {{obj.age}}</view> -->
+
+  <!-- <block wx:for="{{arr}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+    <view>{{index1}}: {{item1}}</view>
+    <view>{{index1}}: {{item1}}</view>
+  </block> -->
 
 
   <!-- <form>
