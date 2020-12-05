@@ -1,0 +1,22 @@
+.movie {
+  display: flex;
+  padding: 20rpx;
+  border-bottom: 2rpx solid #ccc;
+}
+
+.movie-cover {
+  width: 200rpx;
+  height: 300rpx;
+  margin-right: 20rpx;
+}
+
+.movie-info {
+  flex: 1;
+  font-size: 32rpx;
+  line-height: 1.8;
+}
+
+.movie-title{
+  font-size: 48rpx;
+  font-weight: bolder;
+}

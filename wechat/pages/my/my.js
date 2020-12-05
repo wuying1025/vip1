@@ -24,8 +24,23 @@ Page({
       id: 4,
       name: '老谢'
     }],
-    isLogin: false
+    isLogin: false,
+    num: 0
   },
+  onTapHandler() {
+    console.log('onTapHandler')
+    this.setData({
+      num: this.data.num + 1
+    })
+  },
+  onPrentTap(e){
+    console.log('parent')
+    console.log(e)
+  },
+  onChildTap(){
+    console.log('child')
+  },
+
   sort() {
     const length = this.data.teacher.length
     for (let i = 0; i < length; i++) {
@@ -45,35 +60,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('onLoad')
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    console.log('onReady')
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('onShow')
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log('onHide')
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log('onUnload')
   },
 
   /**

@@ -1,0 +1,11 @@
+<view wx:for="{{movieList}}" wx:key="id" class="movie">
+  <image class="movie-cover" src="{{item.cover.url}}"></image>
+  <view class="movie-info">
+    <view class="movie-title">{{item.title}}</view>
+    <view>观众评分：{{item.rating.value}}分</view>
+    <view>主演：
+      <text wx:for="{{item.actors}}" wx:key="index">{{item}} </text>
+    </view>
+    <view>年份：{{item.year}}</view>
+  </view>
+</view>

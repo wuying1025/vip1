@@ -1,5 +1,18 @@
 <view class="container">
-  <view wx:for="{{teacher}}" wx:key="id">
+  <view class="parent" bindtap="onPrentTap" data-xx="123">
+    <view class="child" bindtap="onChildTap"></view>
+  </view>
+
+
+
+  <!-- <view>计数器: {{num}}</view>
+  <button bindtap="onTapHandler">点我+1</button> -->
+
+  <!-- <view class="elem"></view> -->
+
+
+
+  <!-- <view wx:for="{{teacher}}" wx:key="id">
     <checkbox></checkbox>
     {{item.name}}
   </view>
@@ -10,7 +23,7 @@
 
 
   <view hidden="{{true}}">隐藏</view>
-  <view hidden="{{false}}">不隐藏</view>
+  <view hidden="{{false}}">不隐藏</view> -->
 
 
 
