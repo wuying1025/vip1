@@ -1,4 +1,5 @@
 const db = wx.cloud.database()
+const testCollection = db.collection('testvip1')
 Page({
 
   /**
@@ -56,6 +57,47 @@ Page({
       console.log(error)
     }
 
+  },
+
+  async update() {
+    try {
+      const res = await testCollection.doc('0a4429175fcc3e0300d3c6cb3a9904e5').update({
+        data: {
+          age: 35
+        }
+      })
+      console.log(res)
+    } catch (err) {
+      console.log(err)
+    }
+
+  },
+
+  async search() {
+    const res = await testCollection.where({
+      name: 'xiecheng'
+    }).get()
+    console.log(res)
+  },
+
+  async delete() {
+    try {
+      const res = await testCollection.doc('e62469b25fcc3ebb00f33db06960b447').remove()
+      console.log(res)
+    } catch (err) {
+      console.error(err)
+    }
+  },
+  sum(){
+    wx.cloud.callFunction({
+      name: 'sum11',
+      data: {
+        x: 5,
+        y: 6
+      }
+    }).then(res=>{
+      console.log(res)
+    })
   },
 
   /**
