@@ -16,12 +16,12 @@
     "position": "bottom",
     "list": [{
       "pagePath": "pages/my/my",
-      "text": "点餐",
+      "text": "基础",
       "iconPath": "images/base.png",
       "selectedIconPath": "images/base-actived.png"
     }, {
       "pagePath": "pages/index/index",
-      "text": "吃饭",
+      "text": "云开发",
       "iconPath": "images/cloud.png",
       "selectedIconPath": "images/cloud-actived.png"
     }]
