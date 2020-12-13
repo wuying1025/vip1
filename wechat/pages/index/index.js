@@ -1,4 +1,4 @@
-const db = wx.cloud.database()
+// const db = wx.cloud.database()
 Page({
 
   /**
@@ -8,7 +8,7 @@ Page({
     
   },
   insert(){
-    db.
+    // db.
   },
 
   /**

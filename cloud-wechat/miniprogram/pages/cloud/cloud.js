@@ -41,7 +41,7 @@ Page({
     // })
 
     try {
-      const res = await db.collection('testvip123').add({
+      const res = await db.collection('testvip1').add({
         data: {
           name: 'lisi',
           age: 20,
@@ -99,7 +99,58 @@ Page({
       console.log(res)
     })
   },
+  async getOpenid(){
+    const openidRes = await wx.cloud.callFunction({
+      name: 'getOpenid'
+    })
+    console.log(openidRes)
+  },
 
+  async betchDel(){
+    const res = await wx.cloud.callFunction({
+      name: 'betchDelData'
+    })
+    console.log(res)
+    // if(res.result.startsWith.removed > 0){
+
+    // }
+  },
+  upload(){
+    // 1、选择图片：选择相册图片、拍照
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths)
+        // 2、把图片上传云存储
+        wx.cloud.uploadFile({
+          cloudPath: 'testvip1/example.png',
+          filePath: tempFilePaths[0], // 文件路径
+        }).then(res => {
+          // get resource ID
+          console.log(res.fileID)
+          // 3、保存fileID到云数据库
+          db.collection('image').add({
+            data: {
+              fileID: res.fileID
+            }
+          }).then(res => {
+            console.log(res);
+            wx.showToast({
+              title: '上传成功',
+            })
+          })
+        }).catch(error => {
+          // handle error
+          console.error(error)
+        })
+
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
