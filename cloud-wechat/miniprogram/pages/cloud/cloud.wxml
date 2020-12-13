@@ -11,3 +11,11 @@
 
 <view>云存储</view>
 <button bindtap="upload">文件上传</button>
+<button bindtap="showImg">展示图片</button>
+
+<block wx:for="{{images}}" wx:key="_id">
+  <image src="{{item.fileID}}"></image>
+  <button size="mini" bindtap="download"
+  data-fileid="{{item.fileID}}"
+  >下载图片</button>
+</block>

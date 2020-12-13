@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    images: []
   },
   async insert() {
     // db.collection('testvip1').add({
@@ -88,25 +88,25 @@ Page({
       console.error(err)
     }
   },
-  sum(){
+  sum() {
     wx.cloud.callFunction({
       name: 'sum11',
       data: {
         x: 5,
         y: 6
       }
-    }).then(res=>{
+    }).then(res => {
       console.log(res)
     })
   },
-  async getOpenid(){
+  async getOpenid() {
     const openidRes = await wx.cloud.callFunction({
       name: 'getOpenid'
     })
     console.log(openidRes)
   },
 
-  async betchDel(){
+  async betchDel() {
     const res = await wx.cloud.callFunction({
       name: 'betchDelData'
     })
@@ -115,13 +115,13 @@ Page({
 
     // }
   },
-  upload(){
+  async upload() {
     // 1、选择图片：选择相册图片、拍照
-    wx.chooseImage({
+    /* wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
-      success (res) {
+      success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
         console.log(tempFilePaths)
@@ -147,8 +147,72 @@ Page({
           // handle error
           console.error(error)
         })
-
       }
+    }) */
+
+
+    // async await 
+    // 1、选择图片：选择相册图片、拍照
+    let chooseImgRes
+    let tempFilePaths
+    try {
+      chooseImgRes = await wx.chooseImage({
+        count: 1,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
+      })
+      tempFilePaths = chooseImgRes.tempFilePaths
+    } catch (error) {
+      console.error(error)
+    }
+    // 2、把图片上传云存储
+    let uploadRes
+    try {
+      uploadRes = await wx.cloud.uploadFile({
+        cloudPath: `testvip1/${Math.random()}.png`,
+        filePath: tempFilePaths[0], // 文件路径
+      })
+    } catch (error) {
+      console.error(error)
+    }
+
+    // 3、保存fileID到云数据库
+    try {
+      const dbRes = await db.collection('image').add({
+        data: {
+          fileID: uploadRes.fileID
+        }
+      })
+      console.log(dbRes)
+    } catch (error) {
+      console.error(error)
+    }
+
+  },
+
+  async showImg() {
+    // 1、云数据库读取数据
+    const {
+      data
+    } = await db.collection('image').get()
+    console.log(data)
+    // 2、显示图片到页面
+    this.setData({
+      images: data
+    })
+  },
+  async download(e) {
+    console.log(e.target.dataset.fileid);
+    const downloadRes = await wx.cloud.downloadFile({
+      fileID: e.target.dataset.fileid
+    })
+    console.log(downloadRes.tempFilePath)
+    // 下载图片到手机相册
+    await wx.saveImageToPhotosAlbum({
+      filePath: downloadRes.tempFilePath
+    })
+    wx.showToast({
+      title: '下载成功'
     })
   },
   /**
