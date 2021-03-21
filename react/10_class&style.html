@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #aa{
+            background: red;
+        }
+        .bb{
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        class Main extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h2 id="aa">父组件</h2>
+                        <p className="bb">ahahahhh</p>
+                        <p style={{background:'pink',color:'yellow'}}>sgdhfghjk;l'</p>
+                    </div>
+                )
+            }
+        }
+       
+        ReactDOM.render(
+            <Main></Main>,
+            document.getElementById('root')
+        )
+    </script>
+
+</body>
+
+</html>
