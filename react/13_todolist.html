@@ -9,6 +9,12 @@
         .red{
             background: red;
         }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
     </style>
 </head>
 
@@ -27,20 +33,23 @@
                             name: '苹果',
                             price: 1,
                             id:1,
-                            isCheck:false
+                            isCheck:false,
+                            show:true
                         },
                         {
                             name: '香蕉',
                             price: 10,
                             id:2,
-                            isCheck:false
+                            isCheck:false,
+                            show:true
                         }
                     ]
                 }
                 this.add = this.add.bind(this);
                 this.change = this.change.bind(this);
                 this.del = this.del.bind(this);
-                this.deleteAll = this.deleteAll.bind(this)
+                this.deleteAll = this.deleteAll.bind(this);
+                this.search = this.search.bind(this);
             }
             // 添加方法
             add(obj){
@@ -50,7 +59,8 @@
                 list.push({
                     ...obj,
                     id:new Date().getTime(),
-                    isCheck:false
+                    isCheck:false,
+                    show:true
                 })
                 // console.log(list)
                 this.setState({
@@ -85,7 +95,31 @@
                 this.setState({
                     list:result
                 })
-                
+
+            }
+            total(){
+                let {list} = this.state;
+                let sum = 0;
+                list.forEach((obj)=>{
+                    if(obj.isCheck){
+                        sum += obj.price;
+                    }
+                })
+                return sum;
+            }
+            // 修改元素show状态
+            search(val){
+                let {list} = this.state;
+                list.forEach((obj)=>{
+                    if(obj.name.includes(val)){
+                        obj.show = true; //显示
+                    }else{
+                        obj.show = false; //隐藏
+                    }
+                })
+                this.setState({
+                    list
+                })
             }
             render() {
                 return (
@@ -93,10 +127,10 @@
                         <h2>todolist</h2>
                         <hr />
                         <Add addFn={this.add}></Add>
-                        <Search></Search>
+                        <Search search={this.search}></Search>
                         <List list={this.state.list} change={this.change} del={this.del}></List>
                         <button onClick={this.deleteAll}>删除选中</button>
-                        <span>总价11</span>
+                        <span>总价{this.total()} </span>
                     </div>
                 )
             }
@@ -125,8 +159,11 @@
             render() {
                 return (
                     <div>
-                        <input type="text" />
-                        <button>搜索</button>
+                        <input type="text" ref={(input)=>{this.myInput = input}}/>
+                        <button onClick={()=>{
+                            this.props.search(this.myInput.value)
+                        }
+                        }>搜索</button>
                     </div>
                 )
             }
@@ -138,9 +175,19 @@
                     <ul>
                         {
                             list.map((obj,index) => {
+                                let clsName = ""
+                                if(obj.isCheck){
+                                    clsName += "red"
+                                }
+                                if(obj.show){
+                                    clsName += " show"
+                                }else{
+                                    clsName += " hide"
+                                }
+
                                 return (
                                     <li key={obj.id} 
-                                        className={obj.isCheck?'red':''}
+                                        className={clsName}
                                         onClick={()=>{
                                         change(index);
                                     }}> 
