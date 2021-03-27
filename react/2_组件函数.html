@@ -7,6 +7,7 @@
 </head>
 <body>
     <div id="root">
+        
     </div>
     <script src="react.development.js"></script>
     <script src="react-dom.development.js"></script>
@@ -18,12 +19,15 @@
                 <div>
                     <h1>{props.title}</h1>
                     <p>{props.content}</p>
+                    {props.children}
                 </div>
             )
         }
 
         ReactDOM.render(
-            <Hello title="标题1" content="森岛帆高寒假快乐；"></Hello>,
+            <Hello title="标题1" content="森岛帆高寒假快乐；">
+                <h3>hahaha</h3>
+            </Hello>,
             document.getElementById('root')
         )
 
