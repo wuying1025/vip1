@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef, useMemo, memo ,useCallback} from 'react'
+import { useState, useEffect, useRef, useMemo, memo ,useCallback,useReducer} from 'react'
+import Child1 from './Child1'
+import myContext from './myContext'
 // function Child({ data }) {
 //     console.log('render ',data)
 //     return (
@@ -19,6 +21,16 @@ const Child = memo(({ data, change }) => {
 
     )
 })
+const reducer = (state=0,{type}) =>{
+    switch (type){
+        case "add":
+            return state+1;
+        case "reduce":
+            return state-1;
+        default:
+            return state
+    }
+}
 // 主组件 父组件
 
 function App(props) {
@@ -52,6 +64,9 @@ function App(props) {
     //     console.log(1)
     // }
 
+    // useReducer(reducer,初始值)
+    const [num, dispatch] = useReducer(reducer, 0);
+
     return (
         <div>
             <h2>{count}</h2>
@@ -79,6 +94,20 @@ function App(props) {
             }}>修改title</button>
             {/* 子组件引入 */}
             <Child data={data} change={change}></Child>
+            <h1>这是存在reduer中的num : {num}</h1>
+            <button onClick={
+                ()=>{
+                    dispatch({type:'add'})
+                }
+            }> ++</button>
+            <button onClick={
+                ()=>{
+                    dispatch({type:'reduce'})
+                }
+            }> --</button>
+            <myContext.Provider value={count}>
+                <Child1></Child1>
+            </myContext.Provider>
         </div>
     )
 
